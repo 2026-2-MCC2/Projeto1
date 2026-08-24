@@ -16,7 +16,7 @@ Vide tutoriais do PI.
 
 ## 👩‍💻 Integrantes:
 - [SN](https://www.linkedin.com/in/sn/)
-- [SN](https://www.linkedin.com/in/sn/)
+- [Pietra Augusto Farias Ruiz](https://www.linkedin.com/in/pietra-ruiz-57b7643b3/)
 - [Maria Eduarda da Silva Souza](www.linkedin.com/in/mariaeduarda-silsouza)
 - [SN](https://www.linkedin.com/in/sn/)
 
