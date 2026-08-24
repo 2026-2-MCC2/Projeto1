@@ -15,7 +15,7 @@ Vide tutoriais do PI.
 ## 👥 Grupo: Build a dindin bomb
 
 ## 👩‍💻 Integrantes:
-- [SN](https://www.linkedin.com/in/sn/)
+- [Lucas Pascali Janjiulio](https://www.linkedin.com/in/lucas-janjiulio-6152363b7/)
 - [Pietra Augusto Farias Ruiz](https://www.linkedin.com/in/pietra-ruiz-57b7643b3/)
 - [Maria Eduarda da Silva Souza](www.linkedin.com/in/mariaeduarda-silsouza)
 - [Lucas Elinou Feitosa](https://www.linkedin.com/in/lucas-elinou-feitosa-5568b1401/)
