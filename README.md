@@ -18,7 +18,7 @@ Vide tutoriais do PI.
 - [SN](https://www.linkedin.com/in/sn/)
 - [Pietra Augusto Farias Ruiz](https://www.linkedin.com/in/pietra-ruiz-57b7643b3/)
 - [Maria Eduarda da Silva Souza](www.linkedin.com/in/mariaeduarda-silsouza)
-- [Lucas Elinou Feitosa](www.linkedin.com/in/lucas-elinou-feitosa-5568b1401/)
+- [Lucas Elinou Feitosa](https://www.linkedin.com/in/lucas-elinou-feitosa-5568b1401/)
 
 ## 🧑‍🏫 Professores Orientadores:
 - [David de Oliveira Lemes](https://www.linkedin.com/in/dolemes/)
