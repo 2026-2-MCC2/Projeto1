@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TrocaTicket</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header class="cabecalho">
+            <a href="index.html" class="cabecalho_logo">
+                <span class="cabecalho_logo-icone">🎟️</span>
+                TrocaTicket
+            </a>
+
+            <nav class="cabecalho_nav">
+                <a href="index.html" class="ativo">Início</a>
+                <a href="#eventos-destaque" data-nav="Eventos">Eventos</a>
+                <a href="#" data-nav="Marketplace">Marketplace</a>
+                <a href="cadastro.html">Ingressos</a>
+                <a href="dashboard-fornecedor.html">Pedidos</a>
+            </nav>
+
+            <div class="cabecalho_acoes">
+                <button class="botao-icone botao-menu-mobile" id="botao-menu" title="Menu">☰</button>
+                <input type="button" id="contraste" value="Modo Claro" onclick="toggle(this);">
+                <button class="botao-icone" id="botao-carrinho" title="Carrinho">🛒</button>
+                <button class="botao-icone" id="botao-conta" title="Minha conta">👤</button>
+            </div>
+        </header>
+
+        <main>
+            <!-- Eventos em destaque -->
+            <section class="container" id="eventos-destaque">
+                <h1 class="titulo-secao">EVENTOS EM DESTAQUE</h1>
+
+                <div class="carrossel-eventos" id="lista-eventos"></div>
+                <p id="eventos-carregando">Carregando eventos...</p>
+                <div id="eventos-erro" hidden>
+                    <p>Não foi possível carregar os eventos agora.</p>
+                    <button type="button" id="eventos-tentar-novamente" class="botao-detalhes">Tentar novamente</button>
+                </div>
+
+                <div class="patrocinado">
+                    <span class="patrocinado_icone">🏷️</span>
+                    <div>
+                        <strong>Patrocinado da Newsletter</strong>
+                        <p>Fique por dentro dos melhores eventos toda semana.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção promocional -->
+            <section class="promo container">
+                <div class="promo_bloco">
+                    <h2>DESCUBRA<br><span class="promo_destaque">EXPERIÊNCIAS ÚNICAS</span></h2>
+                    <p class="promo_legenda">SINTA</p>
+                </div>
+
+                <div class="promo_bloco promo_bloco--inverso">
+                    <h2>CRIE<br><span class="promo_destaque">MEMÓRIAS</span></h2>
+                    <p class="promo_legenda">E ETERNIZE MOMENTOS</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="rodape">
+            <div class="rodape_logo">
+                <span class="cabecalho_logo-icone">🎟️</span>
+                TrocaTicket
+            </div>
+
+            <div class="rodape_colunas container">
+                <div>
+                    <h3>Sobre a plataforma</h3>
+                    <a href="#">Quem somos</a>
+                    <a href="#">Como funciona</a>
+                    <a href="#">Contato</a>
+                </div>
+                <div>
+                    <h3>Suporte e ajuda</h3>
+                    <a href="#">Central de ajuda</a>
+                    <a href="#">Fale conosco</a>
+                    <a href="#">Perguntas frequentes</a>
+                </div>
+                <div>
+                    <h3>Segurança e dados</h3>
+                    <a href="#">Termos de uso</a>
+                    <a href="#">Política de privacidade</a>
+                </div>
+                <div>
+                    <h3>Protótipo (demonstração)</h3>
+                    <a href="cadastro.html">Cadastro</a>
+                    <a href="login.html">Entrar</a>
+                    <a href="dashboard-admin.html">Dashboard Admin</a>
+                    <a href="dashboard-fornecedor.html">Dashboard Fornecedor</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Carrinho lateral -->
+        <aside class="carrinho-drawer" id="carrinho-drawer">
+            <div class="carrinho-drawer_topo">
+                <h3>Seu carrinho</h3>
+                <button class="modal-fechar" id="fechar-carrinho">✕</button>
+            </div>
+            <p>Seu carrinho está vazio por enquanto.</p>
+        </aside>
+
+        <!-- Modal de evento -->
+        <div class="modal-overlay" id="modal-evento" hidden>
+            <div class="modal-caixa">
+                <button class="modal-fechar" id="fechar-modal-evento">✕</button>
+                <h3 id="modal-evento-titulo">Evento</h3>
+                <p>Mais detalhes desse evento aparecem aqui assim que o back-end estiver ligado (data, local, preço, ingressos disponíveis).</p>
+                <button type="button" class="botao-principal" id="modal-evento-comprar">Comprar ingresso</button>
+            </div>
+        </div>
+
+        <script src="js/buttons.js"></script>
+        <script src="js/eventos.js"></script>
+        <script src="js/interacoes.js"></script>
+    </body>
+</html>
