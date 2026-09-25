@@ -1,0 +1,82 @@
+404.html
+
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Página não encontrada — TrocaTicket</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body class="pagina-auth">
+        <main class="auth-container">
+            <div class="auth-card" style="text-align: center;">
+                <div class="auth-card_topo">
+                    <span class="auth-card_icone">🎟️</span>
+                    <h1 class="auth-card_titulo">TrocaTicket</h1>
+                </div>
+
+                <h2 class="auth-card_pergunta">404 — Página não encontrada</h2>
+                <p class="auth-card_descricao">
+                    A página que você tentou acessar não existe ou foi movida.
+                </p>
+
+                <a href="index.html" class="botao-principal" style="display: block; text-decoration: none;">
+                    Voltar para o início
+                </a>
+            </div>
+        </main>
+
+        <script src="js/buttons.js"></script>
+    </body>
+</html>
+
+login.html
+
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Entrar — TrocaTicket</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body class="pagina-auth">
+        <main class="auth-container">
+            <form class="auth-card" novalidate>
+                <div class="auth-card_topo">
+                    <span class="auth-card_icone">🎟️</span>
+                    <h1 class="auth-card_titulo">TrocaTicket</h1>
+                    <p class="auth-card_subtitulo">Eventos e Ingressos</p>
+                </div>
+
+                <h2 class="auth-card_pergunta">Entrar na conta</h2>
+                <p class="auth-card_descricao">
+                    Acesse seus eventos, ingressos e pedidos.
+                </p>
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="nome@exemplo.com" required>
+                </div>
+
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Sua senha" required>
+                </div>
+
+                <button type="submit" class="botao-principal">Entrar</button>
+
+                <p class="auth-card_rodape">
+                    Ainda não tem conta? <a href="cadastro.html"><strong>Criar conta</strong></a>
+                </p>
+
+                <p class="auth-card_rodape">
+                    Ver protótipo: <a href="dashboard-admin.html">Admin</a> · <a href="dashboard-fornecedor.html">Fornecedor</a>
+                </p>
+            </form>
+        </main>
+
+        <script src="js/buttons.js"></script>
+    </body>
+</html>
