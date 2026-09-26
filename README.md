@@ -73,6 +73,10 @@ May the force be with you!
 └── READ.md
 
 ```
+## 🛢️ Banco de dados
+Diagrama (DER) e Modelo Lógico em: 
+[documentos/Entrega 1/Banco de Dados](https://github.com/2026-2-MCC2/Projeto1/tree/a3e34a9fd001302c98b8f522e89a80304a9c8292/documentos/Entrega%201/Banco%20de%20Dados)
+
 ## 🛠 Instalação
 
 <b>Android:</b>
