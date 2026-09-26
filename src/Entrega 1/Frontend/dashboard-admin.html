@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard Admin — TrocaTicket</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="painel">
+            <aside class="sidebar">
+                <div class="sidebar_topo">
+                    <span class="cabecalho_logo-icone">🎟️</span>
+                    <div>
+                        <div class="sidebar_titulo">TrocaTicket</div>
+                        <div class="sidebar_papel">Administrador</div>
+                    </div>
+                </div>
+
+                <nav class="sidebar_nav">
+                    <a href="dashboard-admin.html" class="ativo">📋 Dashboard</a>
+                    <a href="#">🗂️ Solicitações</a>
+                    <a href="#">📈 Análise</a>
+                    <a href="#">❓ Suporte</a>
+                </nav>
+
+                <a href="index.html" class="sidebar_sair">↩️ Sair</a>
+            </aside>
+
+            <div class="painel_conteudo">
+                <div class="painel_topo">
+                    <div>
+                        <p class="painel_saudacao">Olá, XXXXXXXXXXXX!</p>
+                    </div>
+                    <a href="dashboard-fornecedor.html" class="botao-detalhes">Ver painel Fornecedor →</a>
+                </div>
+
+                <section class="cards-resumo">
+                    <div class="card-resumo">
+                        <span class="card-resumo_rotulo">Solicitações</span>
+                        <span class="card-resumo_valor">XXXXXXX</span>
+                    </div>
+                    <div class="card-resumo">
+                        <span class="card-resumo_rotulo">Análises</span>
+                        <span class="card-resumo_valor">XXXXXXX</span>
+                    </div>
+                    <div class="card-resumo">
+                        <span class="card-resumo_rotulo">Suporte</span>
+                        <span class="card-resumo_valor">XXXXXXX</span>
+                    </div>
+                </section>
+
+                <section class="paineis-grafico">
+                    <div class="grafico-card">
+                        <h3>Eventos dos últimos meses</h3>
+                        <div class="grafico-barras">
+                            <span style="height: 60%;"></span>
+                            <span style="height: 75%;"></span>
+                            <span style="height: 40%;"></span>
+                            <span style="height: 95%;"></span>
+                            <span style="height: 80%;"></span>
+                            <span style="height: 55%;"></span>
+                            <span style="height: 25%;"></span>
+                        </div>
+                    </div>
+
+                    <div class="grafico-card">
+                        <h3>Acessos</h3>
+                        <div class="grafico-barras">
+                            <span style="height: 30%;"></span>
+                            <span style="height: 50%;"></span>
+                            <span style="height: 90%;"></span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <script src="js/buttons.js"></script>
+    </body>
+</html>
