@@ -1,16 +1,12 @@
-```sh
-Utilize o site <https://www.toptal.com/developers/gitignore> para gerar seu arquivo gitignore e apague este campo.
-
-Vide tutoriais do PI.
-```
-
 # FECAP - Fundação de Comércio Álvares Penteado
 
 <p align="center">
 <a href= "https://www.fecap.br/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhZPrRa89Kma0ZZogxm0pi-tCn_TLKeHGVxywp-LXAFGR3B1DPouAJYHgKZGV0XTEf4AE&usqp=CAU" alt="FECAP - Fundação de Comércio Álvares Penteado" border="0"></a>
 </p>
 
-# 🎟️ TrocaTicket
+# <img src="imagens/LogoTrocaTicket.png" width="250" height="250" alt="Logo da TrocaTicket">
+
+<p>Repositório dedicado ao desenvolvimento web dos módulos restantes da TrocaTicket.</p>
 
 ## 👥 Grupo: Build a dindin bomb
 
@@ -73,16 +69,30 @@ May the force be with you!
 └── READ.md
 
 ```
-## 🛢️ Banco de dados
-Diagrama (DER) e Modelo Lógico em: 
-[documentos/Entrega 1/Banco de Dados](https://github.com/2026-2-MCC2/Projeto1/tree/a3e34a9fd001302c98b8f522e89a80304a9c8292/documentos/Entrega%201/Banco%20de%20Dados)
+
+## 📋 Entregas
+
+### 🠮 Entrega 1
+
+| Máteria | Data | Link |
+|---------|------|------|
+|Banco de Dados| 25/09/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%201/Banco%20de%20Dados |
+|Cálculo II| 25/09/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%201/Calculo%20II |
+|D. Web FullStack| 25/09/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%201/Desenvolvimento%20Web%20FullStack |
+|G. Empresarial| 25/09/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%201/Gestao%20Empresarial |
+|Projeto Interdisciplinar| 25/09/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%201/Projeto%20Interdisciplinar |
+
+### 🠮 Entrega 2
+
+| Máteria | Data | Link |
+|---------|------|------|
+|Banco de Dados| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Banco%20de%20Dados |
+|Cálculo II| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Desenvolvimento%20Web%20FullStack |
+|D. Web FullStack| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Gestao%20Empresarial |
+|G. Empresarial| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Gestao%20Empresarial |
+|Projeto Interdisciplinar| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Projeto%20Interdisciplinar |
 
 ## 🛠 Instalação
-
-<b>Android:</b>
-
-Faça o Download do JOGO.apk no seu celular.
-Execute o APK e siga as instruções de seu telefone.
 
 ```sh
 Coloque código do prompt de comnando se for necessário
@@ -108,7 +118,6 @@ Descreva como instalar todas as dependências para desenvolvimento e como rodar 
 
 Para abrir este projeto você necessita das seguintes ferramentas:
 
--<a href="https://godotengine.org/download">GODOT</a>
 
 ```sh
 make install
