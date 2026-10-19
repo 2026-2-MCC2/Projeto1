@@ -6,8 +6,6 @@
 
 # <img src="imagens/LogoTrocaTicket.png" width="250" height="250" alt="Logo da TrocaTicket">
 
-<p>Repositório dedicado ao desenvolvimento web dos módulos restantes da TrocaTicket.</p>
-
 ## 👥 Grupo: Build a dindin bomb
 
 ## 👩‍💻 Integrantes:
