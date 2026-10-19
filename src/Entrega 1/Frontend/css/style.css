@@ -125,6 +125,10 @@ img{
     padding: var(--espaco-4) var(--espaco-3);
 }
 
+.containerCenter {
+    text-align: center;
+}
+
 .titulo-pagina, .titulo-secao {
     margin: 0 0 var(--espaco-3);
     font-size: 1.4rem;
@@ -135,7 +139,6 @@ img{
     margin: 0 0 var(--espaco-4);
     color: var(--cor-texto-suave);
 }
-
 /*Eventos em destaque*/
 .carrossel-eventos {
     display: flex;
