@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Criar conta — TrocaTicket</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body class="pagina-auth">
+        <main class="auth-container">
+            <form class="auth-card" novalidate>
+                <div class="auth-card_topo">
+                    <span class="auth-card_icone">🎟️</span>
+                    <h1 class="auth-card_titulo">TrocaTicket</h1>
+                    <p class="auth-card_subtitulo">Eventos e Ingressos</p>
+                </div>
+
+                <h2 class="auth-card_pergunta">Crie sua conta</h2>
+                <p class="auth-card_descricao">
+                    Cadastre-se para acessar eventos, ingressos e experiências com mais segurança.
+                </p>
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="nome@exemplo.com" required>
+                </div>
+
+                <div class="campo">
+                    <label for="senha">Crie uma senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Crie uma senha segura" minlength="8" required>
+                </div>
+
+                <div class="campo">
+                    <label for="confirmar-senha">Confirme sua senha</label>
+                    <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Repita a senha" required>
+                </div>
+
+                <p class="campo-erro" id="erro-senha" hidden>As senhas não coincidem.</p>
+
+                <button type="submit" class="botao-principal">Próximo</button>
+
+                <p class="auth-card_rodape">
+                    Já tem uma conta? <a href="login.html"><strong>Entrar</strong></a>
+                </p>
+            </form>
+        </main>
+
+        <script src="js/buttons.js"></script>
+        <script src="js/cadastro.js"></script>
+    </body>
+</html>

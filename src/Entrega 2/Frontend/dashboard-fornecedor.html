@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard Fornecedor — TrocaTicket</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="painel">
+            <aside class="sidebar">
+                <div class="sidebar_topo">
+                    <span class="cabecalho_logo-icone">🎟️</span>
+                    <div>
+                        <div class="sidebar_titulo">TrocaTicket</div>
+                        <div class="sidebar_papel">Fornecedor</div>
+                    </div>
+                </div>
+
+                <nav class="sidebar_nav">
+                    <a href="dashboard-fornecedor.html" class="ativo">📋 Dashboard</a>
+                    <a href="#">📅 Eventos</a>
+                    <a href="#">📈 Análise</a>
+                    <a href="#">❓ Suporte</a>
+                    <a href="#">⚙️ Configurações</a>
+                </nav>
+
+                <a href="index.html" class="sidebar_sair">↩️ Sair</a>
+            </aside>
+
+            <div class="painel_conteudo">
+                <div class="painel_topo">
+                    <div>
+                        <p class="painel_saudacao">Olá, XXXXXXXXXXXX!</p>
+                        <h1 class="painel_titulo">Bem-vindo ao seu painel</h1>
+                        <p class="painel_subtitulo">Aqui você pode ver seus produtos fornecidos, pedidos e desempenho.</p>
+                    </div>
+                    <a href="dashboard-admin.html" class="botao-detalhes">Ver painel Admin →</a>
+                </div>
+
+                <section class="cards-resumo">
+                    <div class="card-resumo card-resumo--rosa">
+                        <span class="card-resumo_rotulo">🛒 Total de pedidos</span>
+                        <span class="card-resumo_valor">XXXXX</span>
+                    </div>
+                    <div class="card-resumo card-resumo--laranja">
+                        <span class="card-resumo_rotulo">📅 Pedidos aprovados</span>
+                        <span class="card-resumo_valor">XXXXX</span>
+                    </div>
+                    <div class="card-resumo card-resumo--azul">
+                        <span class="card-resumo_rotulo">❓ Pedidos de Suporte</span>
+                        <span class="card-resumo_valor">XXXXX</span>
+                    </div>
+                </section>
+
+                <p class="faturamento">Faturamento: R$ XXXX,XX</p>
+
+                <div class="painel_layout-fornecedor">
+                    <section class="bloco-tabela">
+                        <div class="bloco-tabela_topo">
+                            <h3>Últimos pedidos</h3>
+                            <div style="display: flex; gap: 8px; position: relative;">
+                                <input type="search" placeholder="Buscar...">
+                                <button class="botao-detalhes" id="botao-filtrar">🔽 Filtrar</button>
+                                <div class="filtro-dropdown" id="filtro-dropdown" hidden>
+                                    <label><input type="checkbox" checked> Em análise</label>
+                                    <label><input type="checkbox" checked> Aprovado</label>
+                                    <label><input type="checkbox" checked> Cancelado</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <table class="tabela-pedidos">
+                            <thead>
+                                <tr>
+                                    <th>Pedido</th>
+                                    <th>Cliente</th>
+                                    <th>Data</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#0842</td>
+                                    <td>Ana Ribeiro</td>
+                                    <td>18/09/2026</td>
+                                    <td><span class="status-pill">Em análise</span></td>
+                                    <td><button class="botao-detalhes botao-ver-detalhes"
+                                        data-pedido="#0842" data-cliente="Ana Ribeiro"
+                                        data-data="18/09/2026" data-status="Em análise">Ver detalhes</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <aside class="painel-lateral">
+                        <h3>Notificações</h3>
+                        <div class="notificacao">
+                            <span class="bolinha bolinha--verde"></span>
+                            <span>XXXXXXXXXXXXX</span>
+                        </div>
+                        <div class="notificacao">
+                            <span class="bolinha bolinha--vermelha"></span>
+                            <span>XXXXXXXXXXXXX</span>
+                        </div>
+                        <div class="notificacao">
+                            <span class="bolinha bolinha--laranja"></span>
+                            <span>XXXXXXXXXXXXX</span>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de detalhes do pedido -->
+        <div class="modal-overlay" id="modal-pedido" hidden>
+            <div class="modal-caixa">
+                <button class="modal-fechar" id="fechar-modal-pedido">✕</button>
+                <h3>Pedido <span id="modal-pedido-numero"></span></h3>
+                <p><strong>Cliente:</strong> <span id="modal-pedido-cliente"></span></p>
+                <p><strong>Data:</strong> <span id="modal-pedido-data"></span></p>
+                <p><strong>Status:</strong> <span id="modal-pedido-status"></span></p>
+            </div>
+        </div>
+
+        <script src="js/buttons.js"></script>
+        <script src="js/painel.js"></script>
+    </body>
+</html>
