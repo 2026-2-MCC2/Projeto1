@@ -4,7 +4,7 @@
 <a href= "https://www.fecap.br/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhZPrRa89Kma0ZZogxm0pi-tCn_TLKeHGVxywp-LXAFGR3B1DPouAJYHgKZGV0XTEf4AE&usqp=CAU" alt="FECAP - Fundação de Comércio Álvares Penteado" border="0"></a>
 </p>
 
-# <img src="imagens/LogoTrocaTicket.png" width="250" height="250" alt="Logo da TrocaTicket">
+# <img src="imagens/logo_navbar_web_full.png" width="250" height="250" alt="Logo da TrocaTicket">
 
 ## 👥 Grupo: Build a dindin bomb
 
