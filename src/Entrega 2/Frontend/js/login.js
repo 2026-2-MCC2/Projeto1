@@ -33,6 +33,13 @@ document.addEventListener("DOMContentLoaded", function (){
             mensagemErro.hidden = false;
             return;
         }
+        if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            mensagemErro.textContent =
+                "Digite um e-mail válido.";
+
+            mensagemErro.hidden = false;
+            return;
+        }
         //Se os dados n forem preenchidos é falso e repete até que satisfaça a condição, caso contrário:
         mensagemErro.hidden = true;
         console.log("Logado.");
@@ -40,6 +47,17 @@ document.addEventListener("DOMContentLoaded", function (){
 
     function obterLogin(){
         const campoEmail = document.getElementById("email").trim;
-        const campoSenha = document.getElementById("senha"); //N vou colocar .trim pois nunca se sabe 
+        const campoSenha = document.getElementById("senha"); //N vou colocar .trim pois nunca se sabe
+
+        return { email, senha };
+    }
+    function loginUsuario(){
+        
+    }
+    function validarLogin(){
+
+    }
+    function realizarLogin(){
+
     }
 });

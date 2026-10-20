@@ -378,7 +378,7 @@ img{
 .rodape_colunas a {
     display: block;
     text-decoration: none;
-    color: var(--cor-texto-suave);
+    color: var(--cor-branco);
     font-size: 0.85rem;
     margin-bottom: 6px;
 }
