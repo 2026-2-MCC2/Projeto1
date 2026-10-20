@@ -9,10 +9,8 @@
     <body class="pagina-auth">
         <main class="auth-container">
             <form class="auth-card" novalidate>
-                <div class="auth-card_topo">
-                    <span class="auth-card_icone">🎟️</span>
-                    <h1 class="auth-card_titulo">TrocaTicket</h1>
-                    <p class="auth-card_subtitulo">Eventos e Ingressos</p>
+                <div class="img-centralizada">
+                    <img src="images/logo_trocaticket.png" width="150" height="150" alt="Logo da TrocaTicket">
                 </div>
 
                 <h2 class="auth-card_pergunta">Entrar na conta</h2>
@@ -30,6 +28,9 @@
                     <input type="password" id="senha" name="senha" placeholder="Sua senha" required>
                 </div>
 
+                <p class="campo-sucesso" id="aviso-login" hidden></p>
+                <p class="campo-erro" id="erro-login" hidden></p>
+
                 <button type="submit" class="botao-principal">Entrar</button>
 
                 <p class="auth-card_rodape">
@@ -43,5 +44,6 @@
         </main>
 
         <script src="js/buttons.js"></script>
+        <script src="js/login.js"></script>
     </body>
 </html>
