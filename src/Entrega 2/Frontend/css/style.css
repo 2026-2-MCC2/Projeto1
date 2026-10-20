@@ -59,6 +59,12 @@ img{
     display: block;
 }
 
+.img-centralizada{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
 /*Header*/
 .cabecalho {
     background: var(--cor-preto);
