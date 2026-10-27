@@ -5,35 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fale Conosco</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/faleconosco.css">
 </head>
 <body class="formulario">
 
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-    </nav>
-  </header>
+  <header class="cabecalho">
+    <a href="index.html" class="cabecalho_logo">
+        <img src="images/logo_navbar_web_full.png" width="250" height="90" alt="Logo da TrocaTicket">
+    </a>
 
-  <main>
-    <h1>Fale Conosco</h1>
+    <nav class="cabecalho_nav">
+        <a href="index.html" class="ativo">Início</a>
+        <a href="#eventos-destaque" data-nav="Eventos">Eventos</a>
+        <a href="#" data-nav="Marketplace">Marketplace</a>
+        <a href="cadastro.html">Ingressos</a>
+        <a href="dashboard-fornecedor.html">Pedidos</a>
+    </nav>
+
+    <div class="cabecalho_acoes">
+        <button class="botao-icone botao-menu-mobile" id="botao-menu" title="Menu">☰</button>
+        <input type="button" id="contraste" value="Modo Claro" onclick="toggle(this);">
+        <button class="botao-icone" id="botao-carrinho" title="Carrinho">🛒</button>
+        <button class="botao-icone" id="botao-conta" title="Minha conta">👤</button>
+    </div>
+</header>
+
+  <main class="global">
+    <h1 class="titulo-secao">Fale Conosco</h1>
     <p>Preencha o formulário e responderemos o mais rápido possível.</p>
 
-    <form action="#" method="post">
-      <label for="nome">Nome</label>
-      <input type="text" id="nome" name="nome" required>
+    <form class="form-faleconosco" action="#" method="post">
+      <label class="label-faleconosco" for="nome">Nome</label>
+      <input class="input-faleconosco" type="text" id="nome" name="nome" required>
 
-      <label for="email">E-mail</label>
-      <input type="email" id="email" name="email" required>
+      <label class="label-faleconosco" for="email">E-mail</label>
+      <input class="input-faleconosco" type="email" id="email" name="email" required>
+      <div class="select-faleconosco">
+        <label class="label-faleconosco" for="assunto">Assunto</label>
+        <select class="select-faleconosco" id="assunto" name="assunto">
+          <option value="duvida">Dúvida</option>
+          <option value="sugestao">Sugestão</option>
+          <option value="reclamacao">Reclamação</option>
+        </select>
+      </div>
 
-      <label for="assunto">Assunto</label>
-      <select id="assunto" name="assunto">
-        <option value="duvida">Dúvida</option>
-        <option value="sugestao">Sugestão</option>
-        <option value="reclamacao">Reclamação</option>
-      </select>
-
-      <label for="mensagem">Mensagem</label>
-      <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+      <div class="textarea-faleconosco">
+        <label class="label-faleconosco" for="mensagem">Mensagem</label>
+        <textarea class="textarea-faleconosco" id="mensagem" name="mensagem" rows="5" required></textarea>
+      </div>
 
       <button type="submit">Enviar</button>
     </form>
@@ -42,6 +61,9 @@
   <footer>
     <p>&copy;TrocaTicket</p>
   </footer>
-
+  <script src="js/buttons.js"></script>
+  <script src="js/eventos.js"></script>
+  <script src="js/interacoes.js"></script>
+  <script src="js/login.js"></script>
 </body>
 </html>
