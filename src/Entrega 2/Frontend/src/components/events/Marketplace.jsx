@@ -1,0 +1,10 @@
+import { useState } from 'react';
+import eventsData from '../../data/eventos.json';
+
+export default function Marketplace({ onSelect }) {
+  const [query, setQuery] = useState('');
+  const [category, setCategory] = useState('Todos');
+  const categories = ['Todos', ...new Set(eventsData.map((event) => event.categoria))];
+  const filtered = eventsData.filter((event) => (category === 'Todos' || event.categoria === category) && `${event.nome} ${event.local} ${event.categoria}`.toLocaleLowerCase('pt-BR').includes(query.toLocaleLowerCase('pt-BR')));
+  return <section className="marketplace container" id="marketplace"><header className="marketplace-heading"><div><span className="eyebrow">Marketplace</span><h2>Escolha como viver.</h2><p>Encontre eventos por nome, categoria ou cidade.</p></div><label className="market-search"><span aria-hidden="true">⌕</span><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar eventos..." aria-label="Buscar eventos"/></label></header><div className="category-filters" aria-label="Filtrar por categoria">{categories.map((item) => <button key={item} className={category === item ? 'selected' : ''} onClick={() => setCategory(item)}>{item}</button>)}</div>{filtered.length ? <div className="market-grid">{filtered.map((event) => <article className="market-card" key={event.id}><button className="market-card-image" onClick={() => onSelect(event)} aria-label={`Ver ${event.nome}`}><img src={event.imagem} alt={event.imagemAlt || ''} loading="lazy"/><span>{event.categoria}</span></button><div className="market-card-body"><h3>{event.nome}</h3><p>{event.data} · {event.local}</p><div><strong>{event.preco}</strong><button onClick={() => onSelect(event)} aria-label={`Ver ingressos de ${event.nome}`}>Ver evento ↗</button></div></div></article>)}</div> : <div className="no-results"><strong>Nenhum evento encontrado.</strong><p>Tente outro nome ou categoria.</p><button onClick={() => {setQuery('');setCategory('Todos');}}>Limpar filtros</button></div>}</section>;
+}

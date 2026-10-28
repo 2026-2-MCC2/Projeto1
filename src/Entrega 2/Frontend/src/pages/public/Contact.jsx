@@ -1,0 +1,8 @@
+import { useState } from 'react';
+import Header from '../../components/layout/Header.jsx';
+import Footer from '../../components/layout/Footer.jsx';
+
+export default function Contact() {
+  const [sent, setSent] = useState(false);
+  return <><Header/><main className="global contact-page"><span className="eyebrow">Estamos aqui para ajudar</span><h1 className="titulo-secao">Vamos conversar.</h1><p>Conte para a gente como podemos ajudar. A mensagem ficará salva neste navegador até a integração de envio.</p><form className="form-faleconosco" onSubmit={e=>{e.preventDefault();const messages=JSON.parse(localStorage.getItem('tt-contact')||'[]');messages.push({...Object.fromEntries(new FormData(e.currentTarget)),createdAt:new Date().toISOString()});localStorage.setItem('tt-contact',JSON.stringify(messages));setSent(true);e.currentTarget.reset();}}><label className="label-faleconosco" htmlFor="nome">Nome</label><input className="input-faleconosco" id="nome" name="nome" required/><label className="label-faleconosco" htmlFor="email">E-mail</label><input className="input-faleconosco" type="email" id="email" name="email" required/><label className="label-faleconosco" htmlFor="assunto">Assunto</label><select className="input-faleconosco" id="assunto" name="assunto"><option>Dúvida</option><option>Sugestão</option><option>Reclamação</option></select><label className="label-faleconosco" htmlFor="mensagem">Mensagem</label><textarea className="input-faleconosco" id="mensagem" name="mensagem" rows="5" required/><button className="botao-principal">Salvar mensagem →</button>{sent && <p className="success-message" role="status">Mensagem salva. Obrigado por entrar em contato!</p>}</form></main><Footer/></>;
+}

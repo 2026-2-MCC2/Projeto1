@@ -1,0 +1,82 @@
+/* Tokens dos painéis: escuro (padrão) e claro */
+:root{--sidebar-bg:#0d0c10;--hover:#ffffff0f;--active-bg:#ffffff14;--active-fg:var(--cor-texto);--pill-bg:#493b24;--pill-fg:#f0c981;--ok-bg:#193c2b;--ok-fg:#91dcaf;--bad-bg:#4a1f24;--bad-fg:#f4a3a8;--danger:#ff7b7b;--card-shadow:none}
+[data-theme="light"]{--sidebar-bg:#fff;--hover:#7950ae12;--active-bg:#7950ae1f;--active-fg:#4f2c80;--pill-bg:#fdf0d0;--pill-fg:#7a4e00;--ok-bg:#d9f3e2;--ok-fg:#14633a;--bad-bg:#fde0e3;--bad-fg:#9b1f2a;--danger:#b42318;--card-shadow:0 1px 3px #26302c14}
+/* Painéis (Admin, Fornecedor, Organizador) */
+.painel{min-height:100vh}
+.painel_barra{display:flex;justify-content:flex-end}
+.perfil-pill:focus-visible,.sidebar_nav a:focus-visible,.sidebar_rodape a:focus-visible,.sidebar_sair:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.page-header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.sidebar_rodape{margin-top:auto;display:flex;flex-direction:column;gap:4px}
+.sidebar_rodape a,.sidebar_sair{display:block;padding:12px;color:var(--muted);text-decoration:none;background:none;border:0;text-align:left;border-radius:8px;width:100%}
+.card-resumo--roxo{border-left-color:#8b6ae0}
+.card-resumo--verde{border-left-color:#4caf6d}
+.cards-resumo{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.layout-duas-colunas{display:grid;grid-template-columns:minmax(0,2fr) minmax(220px,1fr);gap:16px;align-items:start}
+.coluna{display:flex;flex-direction:column;gap:20px;min-width:0}
+.banner-faturamento{display:flex;gap:12px;align-items:center;background:#2f6b34;color:#fff;border-radius:12px;padding:16px 22px;font-size:1.1rem}
+.painel-lateral{display:flex;flex-direction:column;gap:12px}
+.lista-notificacoes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.lista-notificacoes li{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.9rem}
+.dot{width:12px;height:12px;border-radius:50%;flex:none}
+.dot--verde{background:#4caf6d}.dot--vermelho{background:#e5534b}.dot--laranja{background:#e08a3c}
+.filter-tools select{background:var(--page);color:var(--cor-texto);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.bloco-tabela_topo{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.modal-acoes{display:flex;gap:10px;margin:16px 0}
+.acao-rapida{display:block;padding:14px;border:1px solid var(--line);border-radius:10px;color:var(--cor-texto);text-decoration:none}
+.acao-rapida small{display:block;color:var(--muted)}
+.acao-rapida--destaque{background:#c2358f;border-color:#c2358f;color:#fff}
+.acao-rapida--destaque small{color:#ffe3f3}
+.ajuda-banner{display:flex;flex-direction:column;gap:2px;padding:16px 20px;border:1px solid var(--accent);border-radius:12px;color:var(--cor-texto);text-decoration:none;background:var(--surface)}
+.ajuda-banner span{color:var(--muted);font-size:.85rem}
+.eventos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.evento-fornecedor{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.evento-fornecedor img{width:100%;height:150px;object-fit:cover;display:block}
+.evento-fornecedor_corpo{padding:14px;display:flex;flex-direction:column;gap:4px}
+.evento-fornecedor_corpo h3,.evento-fornecedor_corpo p{margin:0}
+.evento-fornecedor_rodape{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:8px}
+.form-painel{display:flex;flex-direction:column;gap:10px;max-width:520px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.form-painel input,.form-painel textarea{background:var(--page);color:var(--cor-texto);border:1px solid var(--line);border-radius:8px;padding:10px}
+.faq{display:flex;flex-direction:column;gap:8px;max-width:680px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+.faq summary{cursor:pointer;font-weight:600}
+.campo select{width:100%;background:transparent;color:inherit;border:1px solid var(--line);border-radius:8px;padding:12px}
+@media (max-width:900px){.layout-duas-colunas{grid-template-columns:1fr}.sidebar_rodape{margin-top:0;flex-direction:row}.sidebar_rodape a,.sidebar_sair{white-space:nowrap}}
+
+/* Sidebar e navegação (usa os tokens, funciona nos dois temas) */
+.sidebar{background:var(--sidebar-bg)}
+.sidebar_nav a,.sidebar_rodape a,.sidebar_sair{display:flex;align-items:center;gap:12px;padding:12px;color:var(--muted);text-decoration:none;background:none;border:0;text-align:left;border-radius:8px;width:100%;font-size:.92rem}
+.sidebar_nav a:hover,.sidebar_rodape a:hover{color:var(--cor-texto);background:var(--hover)}
+.sidebar_nav a.ativo,.sidebar_rodape a.ativo{color:var(--active-fg);background:var(--active-bg);font-weight:600}
+.sidebar_sair{color:var(--danger)}
+.sidebar_sair:hover{background:var(--hover)}
+.painel_barra{align-items:center;gap:10px}
+.perfil-pill{display:inline-flex;align-items:center;gap:12px;padding:8px 16px;border:1px solid var(--line);border-radius:99px;background:var(--surface);color:var(--cor-texto);text-decoration:none}
+.perfil-pill:hover{border-color:var(--accent)}
+.painel-carregando{padding:40px;color:var(--muted)}
+
+/* Cartões, tabelas e selos */
+.card-resumo,.bloco-tabela,.painel-lateral,.grafico-card,.evento-fornecedor,.form-painel,.faq details,.ajuda-banner{box-shadow:var(--card-shadow)}
+.status-pill{background:var(--pill-bg);color:var(--pill-fg)}
+.status-pill.approved{background:var(--ok-bg);color:var(--ok-fg)}
+.status-pill.rejected{background:var(--bad-bg);color:var(--bad-fg)}
+.acao-rapida:hover,.ajuda-banner:hover{border-color:var(--accent)}
+
+/* Gráfico (recharts) herdando as cores do tema */
+.grafico-recharts{color:var(--muted)}
+.grafico-recharts h2{color:var(--cor-texto);margin-bottom:14px}
+.grafico-recharts .recharts-cartesian-grid line{stroke:var(--line)}
+.grafico-recharts .recharts-text{fill:var(--muted);font-size:.78rem}
+.grafico-recharts .recharts-bar-rectangle path{fill:var(--accent)}
+.grafico-recharts .recharts-default-tooltip{background:var(--surface)!important;border:1px solid var(--line)!important;border-radius:8px;color:var(--cor-texto)}
+.grafico-recharts .recharts-tooltip-label,.grafico-recharts .recharts-tooltip-item{color:var(--cor-texto)!important}
+
+/* Cores dos cards (precisam vir depois de styles.css, que fixa a borda em --accent) */
+.card-resumo--rosa{border-left-color:#d1608a}
+.card-resumo--laranja{border-left-color:#d18f3a}
+.card-resumo--azul{border-left-color:#4a90d1}
+.card-resumo--roxo{border-left-color:#8b6ae0}
+.card-resumo--verde{border-left-color:#4caf6d}
+.filter-tools select,.filter-tools input{font-size:.85rem}
+
+.tabela-pedidos th,.tabela-pedidos td,.status-pill{white-space:nowrap}
+@media (min-width:851px){.sidebar{position:sticky;top:0;height:100vh;align-self:start}}
