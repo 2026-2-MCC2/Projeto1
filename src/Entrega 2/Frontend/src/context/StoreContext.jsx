@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useMemo, useState } from 'react';
+import { login } from '../services/authService.js';
 
 const StoreContext = createContext(null);
 const read = (key, fallback) => {
@@ -29,8 +30,8 @@ export function StoreProvider({ children }) {
     const order = { id: `TT-${Date.now().toString().slice(-7)}`, createdAt: new Date().toISOString(), customer, items: cart, total: cart.reduce((sum, item) => sum + priceOf(item) * item.quantity, 0), status: 'Confirmado' };
     const current = [order, ...orders]; setOrders(current); write('tt-orders', current); setCart([]); write('tt-cart', []); return order;
   };
-  const signIn = (email, role = 'cliente') => { const saved = read('tt-account', null); const base = saved?.email === email ? saved : { name: email.split('@')[0], email }; const user = { ...base, role }; setAccount(user); write('tt-account', user); return user; };
-  const signUp = (user) => { const full = { role: 'cliente', ...user }; setAccount(full); write('tt-account', full); return full; };
+  const signIn = async (email, senha, escopo) => { const user = await login(email, senha, escopo); setAccount(user); write('tt-account', user); return user; };
+  const signUp = (user) => { const full = { ...user, role: 'cliente' }; setAccount(full); write('tt-account', full); return full; };
   const updateAccount = (user) => { setAccount(user); write('tt-account', user); notify('Seus dados foram atualizados.'); };
   const signOut = () => { setAccount(null); localStorage.removeItem('tt-account'); };
   const value = useMemo(() => ({ cart, orders, account, message, notify, addToCart, changeQuantity, removeFromCart, finishOrder, signIn, signUp, updateAccount, signOut }), [cart, orders, account, message]);

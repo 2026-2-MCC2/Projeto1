@@ -5,6 +5,7 @@ import useSolicitacoes from '../../hooks/useSolicitacoes.js';
 import PageHeader from '../../components/dashboard/PageHeader.jsx';
 import StatCard from '../../components/dashboard/StatCard.jsx';
 import EventosTable from './EventosTable.jsx';
+import OrganizerCalendar from '../../components/events/OrganizerCalendar.jsx';
 
 export default function MeusEventos() {
   const { orders } = useStore();
@@ -21,6 +22,7 @@ export default function MeusEventos() {
         <StatCard tone="laranja" label="Solicitações" value={lista.filter((s) => s.autor === 'organizador').length} />
         <StatCard tone="verde" label="Faturamento (mês)" value={currency(orders.reduce((s, o) => s + o.total, 0))} />
       </section>
+      <OrganizerCalendar events={eventos} />
       <EventosTable title="Lista de eventos" eventos={eventos} />
     </>
   );

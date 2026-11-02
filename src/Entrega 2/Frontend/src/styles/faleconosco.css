@@ -1,75 +1,74 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ============================================
+   FALECONOSCO
+   (usa tokens de tokens.css)
+   ============================================ */
+
+.global.contact-page {
+    padding: 72px 22px;
+    min-height: 70vh;
 }
 
-.global{
-    margin: 0 auto;
-    width: 100%;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.titulo-secao{
-    font-size: 2rem;
-    font-weight: bold;
+.titulo-secao {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 700;
     text-align: center;
     margin-bottom: 1rem;
 }
-.form-faleconosco{
+
+.form-faleconosco {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
     width: 100%;
     max-width: 600px;
     padding: 2rem;
-    background-color:var (--cor-fundo);
-    border-radius: 10px;
-    margin-top: 48px;
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    margin: 28px auto 0;
     gap: 6px;
-}
-.label-faleconosco{
-    font-size: 1.2rem;
-    font-weight: bold;
     text-align: left;
-    margin-bottom: 1rem;
-    color: var(--texto-formulario);
-    display: flex;
-    justify-content: center;
-}
-.input-faleconosco{
-    width: 100%;
-    padding: 1rem;
-    border-radius: 24px;
-    border: 1px solid var(--cor-borda);
-    margin-bottom: 1rem;
-    border: 1px solid var(--cor-borda-formulario);
-    width: 100%;
-    max-width: 380px;
-}
-.textarea-faleconosco{
-    width: 100%;
-    padding: 1rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-}
-.select-faleconosco{
-    width: 100%;
-    max-width: 280px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.textarea-faleconosco textarea{
-    width: 100%;
-    padding: 1rem;
-    
-    margin-bottom: 1rem;
-    text-align: left;
-    ;
 }
 
+.label-faleconosco {
+    font-size: .9rem;
+    font-weight: 700;
+    text-align: left;
+    margin: 10px 0 2px;
+    color: var(--cor-texto);
+    display: block;
+}
+
+.input-faleconosco {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--page);
+    color: var(--cor-texto);
+    margin-bottom: 5px;
+}
+
+.textarea-faleconosco {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--page);
+    color: var(--cor-texto);
+    margin-bottom: 1rem;
+    resize: vertical;
+}
+
+.select-faleconosco {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--page);
+    color: var(--cor-texto);
+}
+
+.form-faleconosco .botao-principal {
+    margin-top: 10px;
+}

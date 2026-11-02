@@ -1,7 +1,6 @@
 /* Tokens dos painéis: escuro (padrão) e claro */
-:root{--sidebar-bg:#0d0c10;--hover:#ffffff0f;--active-bg:#ffffff14;--active-fg:var(--cor-texto);--pill-bg:#493b24;--pill-fg:#f0c981;--ok-bg:#193c2b;--ok-fg:#91dcaf;--bad-bg:#4a1f24;--bad-fg:#f4a3a8;--danger:#ff7b7b;--card-shadow:none}
-[data-theme="light"]{--sidebar-bg:#fff;--hover:#7950ae12;--active-bg:#7950ae1f;--active-fg:#4f2c80;--pill-bg:#fdf0d0;--pill-fg:#7a4e00;--ok-bg:#d9f3e2;--ok-fg:#14633a;--bad-bg:#fde0e3;--bad-fg:#9b1f2a;--danger:#b42318;--card-shadow:0 1px 3px #26302c14}
-/* Painéis (Admin, Fornecedor, Organizador) */
+:root{--sidebar-bg:var(--chrome-bg-soft);--hover:#ffffff0f;--active-bg:#ffffff14;--active-fg:var(--cor-texto);--pill-bg:#493b24;--pill-fg:#f0c981;--ok-bg:#193c2b;--ok-fg:#91dcaf;--bad-bg:#4a1f24;--bad-fg:#f4a3a8;--danger:#ff7b7b;--card-shadow:none}
+[data-theme="light"]{--sidebar-bg:var(--chrome-bg-soft);--hover:#7950ae12;--active-bg:#7950ae1f;--active-fg:#f3eee6;--pill-bg:#fdf0d0;--pill-fg:#7a4e00;--ok-bg:#d9f3e2;--ok-fg:#14633a;--bad-bg:#fde0e3;--bad-fg:#9b1f2a;--danger:#b42318;--card-shadow:0 1px 3px #26302c14}
 .painel{min-height:100vh}
 .painel_barra{display:flex;justify-content:flex-end}
 .perfil-pill:focus-visible,.sidebar_nav a:focus-visible,.sidebar_rodape a:focus-visible,.sidebar_sair:focus-visible{outline:2px solid var(--accent);outline-offset:2px}

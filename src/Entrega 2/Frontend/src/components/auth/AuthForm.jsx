@@ -10,14 +10,20 @@ export default function AuthForm({ signup = false, equipe = false }) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
+    setError('');
     const data = new FormData(e.currentTarget);
     if (signup && data.get('senha') !== data.get('confirmar')) return setError('As senhas não coincidem.');
     const email = String(data.get('email')).trim().toLowerCase();
-    const role = String(data.get('perfil'));
-    const user = signup ? store.signUp({ name: String(data.get('nome')).trim(), email, role }) : store.signIn(email, role);
-    navigate(location.state?.from || homeFor(user.role), { replace: true });
+    try {
+      const user = signup
+        ? store.signUp({ name: String(data.get('nome')).trim(), email })
+        : await store.signIn(email, String(data.get('senha')), equipe ? 'equipe' : 'cliente');
+      navigate(location.state?.from || homeFor(user.role), { replace: true });
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
@@ -37,19 +43,19 @@ export default function AuthForm({ signup = false, equipe = false }) {
     </Link>
 
     <span className="eyebrow">
-      Sua próxima experiência
+      {equipe ? 'Área de parceiros' : 'Sua próxima experiência'}
     </span>
 
     <h1 className="auth-card_pergunta">
       {signup
         ? 'Crie sua conta'
-        : 'Que bom ter você de volta.'}
+        : equipe ? 'Acesso ao painel' : 'Que bom ter você de volta.'}
     </h1>
 
     <p className="auth-card_descricao">
       {signup
         ? 'Cadastre-se para acessar eventos, ingressos e experiências.'
-        : 'Acesse seus eventos, ingressos e pedidos.'}
+        : equipe ? 'Área para administradores, fornecedores e organizadores.' : 'Acesse seus eventos, ingressos e pedidos.'}
     </p>
 
     {signup && (
@@ -126,18 +132,17 @@ export default function AuthForm({ signup = false, equipe = false }) {
       <span aria-hidden="true">→</span>
     </button>
 
+    {equipe ? (
+      <>
+        {import.meta.env.DEV && <p className="auth-dica">Demonstração: admin@, fornecedor@ ou organizador@trocaticket.dev (qualquer senha).</p>}
+        <p className="auth-card_rodape"><Link to={route('login')}><strong>Sou cliente</strong></Link></p>
+      </>
+    ) : (
     <p className="auth-card_rodape">
-      {signup
-        ? 'Já tem uma conta?'
-        : 'Ainda não tem conta?'}
-
-      {' '}
-      <Link to={route(signup ? 'login' : 'signup')}>
-        <strong>
-          {signup ? 'Entrar' : 'Criar conta'}
-        </strong>
-      </Link>
+      {signup ? 'Já tem uma conta?' : 'Ainda não tem conta?'}{' '}
+      <Link to={route(signup ? 'login' : 'signup')}><strong>{signup ? 'Entrar' : 'Criar conta'}</strong></Link>
     </p>
+    )}
   </form>
 </main>
   );

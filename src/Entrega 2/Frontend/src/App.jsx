@@ -13,6 +13,7 @@ import NotFound from './pages/public/NotFound.jsx';
 
 import Login from './pages/auth/Login.jsx';
 import Cadastro from './pages/auth/Cadastro.jsx';
+import LoginEquipe from './pages/auth/LoginEquipe.jsx';
 import TicketsPage from './pages/cliente/TicketsPage.jsx';
 import OrdersPage from './pages/cliente/OrdersPage.jsx';
 import AccountTabs from './pages/cliente/AccountTabs.jsx';
@@ -32,7 +33,7 @@ import Configuracoes from './pages/shared/Configuracoes.jsx';
 
 const titulos = {
   '/': 'TrocaTicket — Eventos para viver', '/eventos': 'Eventos', '/marketplace': 'Marketplace', '/ingressos': 'Meus ingressos',
-  '/pedidos': 'Meus pedidos', '/minha-conta': 'Minha conta', '/login': 'Entrar', '/cadastro': 'Criar conta', '/contato': 'Contato',
+  '/pedidos': 'Meus pedidos', '/minha-conta': 'Minha conta', '/login': 'Entrar', '/cadastro': 'Criar conta', '/painel/login': 'Acesso ao painel', '/contato': 'Contato',
 };
 
 // Rotas internas de cada perfil. `extras` são as páginas exclusivas do perfil.
@@ -68,6 +69,7 @@ export default function App() {
         <Route path="/contato" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/painel/login" element={<LoginEquipe />} />
         <Route path="/ingressos" element={<TicketsPage />} />
         <Route path="/pedidos" element={<OrdersPage />} />
         <Route path="/minha-conta" element={<AccountTabs />} />

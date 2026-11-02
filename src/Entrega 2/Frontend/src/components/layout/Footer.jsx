@@ -7,6 +7,6 @@ export default function Footer() {
     <div><h3>A TrocaTicket</h3><Link to={route('home')}>Início</Link><Link to={route('marketplace')}>Marketplace</Link><Link to={route('contact')}>Contato</Link></div>
     <div><h3>Suporte e ajuda</h3><Link to={route('contact')}>Central de ajuda</Link><Link to={route('contact')}>Fale conosco</Link><Link to={route('contact')}>Dúvidas frequentes</Link></div>
     <div><h3>Segurança e dados</h3><Link to={route('contact')}>Solicitar termos de uso</Link><Link to={route('contact')}>Solicitar política de privacidade</Link></div>
-    <div><h3>Área de demonstração</h3><Link to={route('signup')}>Cadastro</Link><Link to={route('login')}>Entrar</Link><Link to={route('admin')}>Painel Admin</Link><Link to={route('vendor')}>Painel Fornecedor</Link><Link to={route('organizer')}>Painel Organizador</Link></div>
+    <div><h3>Sua conta</h3><Link to={route('signup')}>Cadastro</Link><Link to={route('login')}>Entrar</Link></div>
   </div><p className="copyright">© 2026 TrocaTicket. Todos os direitos reservados.</p></footer>;
 }

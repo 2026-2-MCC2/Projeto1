@@ -1,54 +1,8 @@
-/*Design Tokens*/
-:root{
-    color-scheme: light dark;
+/* ============================================
+   BASE / COMPONENTES
+   (tokens de cor e tipografia vivem em tokens.css)
+   ============================================ */
 
-    --cor-branco: #fff;
-    --cor-preto: #070707;
-    --cor-texto-roxo1: #8C6DA1;
-
-    --raio: 12px;
-    --espaco-1: 8px;
-    --espaco-2: 16px;
-    --espaco-3: 24px;
-    --espaco-4: 40px;
-}
-[data-theme="light"] {
-    --cor-fundo: #f0f0f0;
-    --cor-fundo-card: #fff;
-    --cor-texto: #181818;
-    --cor-texto-suave: #2b2b2b;
-    --cor-borda: #dcdcdc;
-    --sombra: 0 2px 10px rgba(38, 48, 44, 0.08);
-    --sombra-hover: 0 8px 20px rgba(38, 48, 44, 0.14);
-    --text-color: #000;
-    --cor-fundo-formulario: #000;
-    --texto-formulario: #000;
-    --cor-borda-formulario: #000;
-}
-[data-theme="dark"] {
-    --cor-fundo: #070707;
-    --cor-fundo-card: #161616;
-    --cor-texto: #f0f0f0;
-    --cor-texto-suave: #c0c0c0;
-    --cor-borda: #2a2a2a;
-    --sombra: 0 2px 10px rgba(255, 255, 255, 0.15);
-    --sombra-hover: 0 8px 20px rgba(255, 255, 255, 0.2);
-    --text-color: #fff;
-    --cor-fundo-formulario: #fff;
-    --texto-formulario: #fff;
-    --cor-borda-formulario: #fff;
-}
-*{
-    box-sizing: border-box;
-}
-body{
-    margin: 0;
-    font-family: Inter, "Segoe UI", Roboto, arial, sans-serif;
-    background: var(--cor-fundo);
-    color: var(--cor-texto);
-    line-height: 1.4;
-    transition: all 0.4s ease;
-}
 input, button {
     padding: 10px 20px;
     font-size: 1rem;
@@ -58,13 +12,6 @@ input, button {
     border-radius: 8px;
     background-color: var(--cor-branco);
     color: var(--cor-preto);
-}
-a{
-    color: inherit;
-}
-img{
-    max-width: 100%;
-    display: block;
 }
 
 .img-centralizada{
@@ -166,6 +113,7 @@ img{
     margin: 0 0 var(--espaco-4);
     color: var(--cor-texto-suave);
 }
+
 /*Eventos em destaque*/
 .secao-eventos_topo {
     display: flex;

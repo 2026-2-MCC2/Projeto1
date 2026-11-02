@@ -1,5 +1,5 @@
 import { useStore } from '../../context/StoreContext.jsx';
-import ThemeButton from '../../components/common/ThemeButton.jsx';
+import AccessibilityOptions from '../../components/accessibility/AccessibilityOptions.jsx';
 import PageHeader from '../../components/dashboard/PageHeader.jsx';
 
 export default function Configuracoes() {
@@ -10,13 +10,16 @@ export default function Configuracoes() {
   };
   return (
     <>
-      <PageHeader eyebrow="Conta" title="Configurações" subtitle="Atualize seus dados e o tema da interface." />
+      <PageHeader eyebrow="Conta" title="Configurações" subtitle="Atualize seus dados e ajuste a acessibilidade da interface." />
       <form className="form-painel" onSubmit={submit}>
         <label htmlFor="cfg-nome">Nome</label><input id="cfg-nome" name="name" defaultValue={account.name} required />
         <label htmlFor="cfg-email">E-mail</label><input id="cfg-email" value={account.email} readOnly />
         <button className="botao-principal">Salvar alterações</button>
       </form>
-      <div className="form-painel"><span>Tema</span><ThemeButton /></div>
+      <section className="form-painel" aria-labelledby="cfg-a11y">
+        <h2 id="cfg-a11y">+Acessibilidade</h2>
+        <AccessibilityOptions idPrefix="cfg" />
+      </section>
     </>
   );
 }
