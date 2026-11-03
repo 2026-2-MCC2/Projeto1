@@ -85,7 +85,7 @@ May the force be with you!
 | Máteria | Data | Link |
 |---------|------|------|
 |Banco de Dados| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Banco%20de%20Dados |
-|Cálculo II| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Desenvolvimento%20Web%20FullStack |
+|Cálculo II| 02/11/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Desenvolvimento%20Web%20FullStack |
 |D. Web FullStack| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Gestao%20Empresarial |
 |G. Empresarial| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Gestao%20Empresarial |
 |Projeto Interdisciplinar| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Projeto%20Interdisciplinar |
@@ -135,4 +135,12 @@ Aqui estão as referências usadas no projeto.
 3. <https://chooser-beta.creativecommons.org/>
 4. <https://freesound.org/>
 5. <https://www.toptal.com/developers/gitignore>
-6. Músicas por: <a href="https://freesound.org/people/DaveJf/sounds/616544/"> DaveJf </a> e <a href="https://freesound.org/people/DRFX/sounds/338986/"> DRFX </a> ambas com Licença CC 0.
+6. <https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras>
+7. <https://github.com/TCTK1/TrocaTicket-Assets>
+
+### 🛠️ Tecnologias e Ferramentas
+
+- [React](https://react.dev) - Biblioteca para construção de interfaces
+- [Lucide React](https://lucide.dev) - Biblioteca de componentes de ícones para React
+- [MySQL](https://www.mysql.com/) - Banco de Dados
+- [Node.js](https://nodejs.org/pt-br) - Para criação de servidores 
