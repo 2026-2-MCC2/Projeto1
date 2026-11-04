@@ -28,13 +28,21 @@
   Game by <a href="http://www.nyphotographic.com/">Nick Youngson</a> <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href="http://pix4free.org/">Pix4free</a>
 </p>
 
+<br>
 
-De um a dois parágrafos sobre o que é seu projeto e o que ele faz.
-<br><br>
-Meu projeto ajuda estudantes FECAP a configurarem seus githubs.
-<br><br>
-May the force be with you!
-<br><br>
+<b> 🎟 Quem é a TrocaTicket</b>
+<br>
+<p align="justify">
+A TrocaTicket é uma plataforma web desenvolvida com o objetivo de facilitar a compra e a comercialização de ingressos para eventos, além de conectar organizadores e fornecedores em um único ambiente digital.<br>
+A proposta da plataforma é oferecer uma experiência prática e intuitiva para os usuários, permitindo que encontrem eventos, adquiram ingressos e acompanhem suas solicitações. Ao mesmo tempo, busca facilitar o gerenciamento de eventos pelos organizadores e a apresentação de propostas de fornecimento por empresas parceiras.
+</p>
+
+<b> 🎟 Sobre o projeto</b>
+<br>
+<p align="justify">
+A proposta dada pela empresa é a criação de módulos para os perfis de Administrador, Fornecedor, Organizador. Onde o sistema não deve realizar venda efetiva de ingressos nem processar pagamentos. O foco do MVP é o planejamento do evento, a obtenção e comparação de propostas, a consolidação dos custos e o cálculo do ticket médio estimado com base no público, nos custos e na margem de lucro definida.
+
+<br>
 
 ## 🛠 Estrutura de pastas
 
@@ -84,9 +92,9 @@ May the force be with you!
 
 | Máteria | Data | Link |
 |---------|------|------|
-|Banco de Dados| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Banco%20de%20Dados |
+|Banco de Dados| 05/11/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Banco%20de%20Dados |
 |Cálculo II| 02/11/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Desenvolvimento%20Web%20FullStack |
-|D. Web FullStack| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Gestao%20Empresarial |
+|D. Web FullStack| 06/11/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Gestao%20Empresarial |
 |G. Empresarial| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Gestao%20Empresarial |
 |Projeto Interdisciplinar| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Projeto%20Interdisciplinar |
 
