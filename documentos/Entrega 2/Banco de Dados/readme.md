@@ -1,1 +1,251 @@
-## 🛢 Explicação do banco de dados 
+# 🛢 Explicação do banco de dados – TrocaTicket
+<br>
+
+O banco tem 17 tabelas:
+
+| Tipo | Tabelas |
+|---|---|
+| Contas e perfis | `tb_TipoConta`, `tb_Conta`, `tb_Usuario`, `tb_Organizador`, `tb_Fornecedor`, `tb_Administrador` |
+| Solicitações | `tb_SolicitacaoConta`, `tb_SolicitacaoEvento`, `tb_SolicitacaoAtend_Fornecimento` |
+| Eventos e fornecimento | `tb_Evento`, `tb_ListaComponentes`, `tb_ListaItensFornecimentos`, `tb_TipoFornecimento` |
+| Ingressos e pagamento | `tb_SolicitacaoCompraIngresso`, `tb_Ingresso`, `tb_Pagamento`, `tb_FormaPagamento` |
+
+**Como o sistema foi pensado**
+
+1. Uma conta é criada (cliente, organizador ou fornecedor) e um administrador analisa a solicitação.
+2. O organizador pede a criação de um evento e um administrador analisa.
+3. O organizador lista os componentes que o evento precisa e os fornecedores oferecem itens para eles.
+4. O usuário compra ingressos e faz o pagamento.
+
+## 📖 Nomenclaturas utilizadas
+
+| Sigla | Significado |
+|---|---|
+| **PK** | Chave primária |
+| **FK** | Chave estrangeira |
+| **UNIQUE** | Valor não pode se repetir |
+| **NOT NULL** | Preenchimento obrigatório |
+| **AUTO** | `AUTO_INCREMENT` (gerado automaticamente) |
+
+## 🗂️ Tipos de dados 
+
+| Tipo de dado | Finalidade | Motivo da escolha |
+|---|---|---|
+| `INT` | Identificadores, quantidades e capacidade de público. | Armazena números inteiros, sem casas decimais. |
+| `VARCHAR(n)` | Nomes, e-mails, telefones, endereços e outros textos curtos. | Permite armazenar textos de tamanhos variados, com limite definido. E caso não preenchido ocupa menos do armazenamento |
+| `CHAR(n)` | CPF e CNPJ. | É adequado para informações com quantidade fixa de caracteres. |
+| `TEXT` | Descrições de eventos e itens de fornecimento. | Permite armazenar textos maiores. |
+| `DATETIME` | Datas e horários de solicitações, eventos, compras e pagamentos. | Permite registrar data e horário no mesmo campo. |
+| `DECIMAL(10,2)` | Valores monetários, como preços, ofertas e valores de compras. | Armazena números com duas casas decimais e precisão definida, sendo adequado para valores financeiros. |
+| `DECIMAL(5,2)` | Margem de lucro. | Permite armazenar números decimais com até cinco dígitos no total, sendo dois deles após a vírgula. |
+| `TINYINT` | Status de solicitações, ingressos e pagamentos. | Armazena pequenos números inteiros, adequados para representar códigos de situação. |
+| `AUTO_INCREMENT` | Identificadores das tabelas. | Gera automaticamente um novo número para cada registro. |
+
+---
+<br>
+
+## 🧩 Tabelas do banco
+
+### `tb_TipoConta`
+
+Tipos de conta do sistema.
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDTipoConta` | `INT` | PK, AUTO | Identificador |
+| `Nome` | `VARCHAR(50)` | NOT NULL | Nome do tipo |
+
+### `tb_FormaPagamento`
+
+Formas de pagamento aceitas.
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDFormaPagamento` | `INT` | PK, AUTO | Identificador |
+| `Nome` | `VARCHAR(50)` | NOT NULL | Nome da forma de pagamento |
+
+### `tb_TipoFornecimento`
+
+Categorias de fornecimento.
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDTipoFornecimento` | `INT` | PK, AUTO | Identificador |
+| `Nome` | `VARCHAR(100)` | NOT NULL | Nome da categoria |
+
+---
+
+`tb_Conta` guarda os dados de login. Cada conta tem **um** perfil: `tb_Usuario`, `tb_Organizador` ou `tb_Fornecedor` (relação 1:1). Já `tb_Administrador` é independente.
+
+### `tb_Conta`
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDConta` | `INT` | PK, AUTO | Identificador |
+| `idtb_TipoConta` | `INT` | FK, NOT NULL | Tipo da conta (`tb_TipoConta`) |
+| `Telefone` | `VARCHAR(20)` | – | Telefone (opcional) |
+| `Email` | `VARCHAR(150)` | NOT NULL, UNIQUE | E-mail de acesso |
+| `Senha` | `VARCHAR(255)` | NOT NULL | Senha |
+
+### `tb_Usuario`
+
+Cliente que compra ingressos.
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDUsuario` | `INT` | PK, AUTO | Identificador |
+| `PK_IDConta` | `INT` | FK, NOT NULL, UNIQUE | Conta do usuário (`tb_Conta`) |
+| `CPF` | `CHAR(11)` | NOT NULL, UNIQUE | CPF (só números) |
+| `Nome` | `VARCHAR(100)` | NOT NULL | Nome completo |
+
+### `tb_Organizador`
+
+Quem organiza eventos.
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDOrganizador` | `INT` | PK, AUTO | Identificador |
+| `PK_IDConta` | `INT` | FK, NOT NULL, UNIQUE | Conta do organizador (`tb_Conta`) |
+| `CNPJ` | `CHAR(14)` | NOT NULL, UNIQUE | CNPJ (só números) |
+| `Endereco` | `VARCHAR(200)` | – | Endereço (opcional) |
+
+### `tb_Fornecedor`
+
+Quem fornece itens e serviços para os eventos.
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDFornecedor` | `INT` | PK, AUTO | Identificador |
+| `PK_IDConta` | `INT` | FK, NOT NULL, UNIQUE | Conta do fornecedor (`tb_Conta`) |
+| `CNPJ` | `CHAR(14)` | NOT NULL, UNIQUE | CNPJ (só números) |
+| `Endereco` | `VARCHAR(200)` | – | Endereço (opcional) |
+
+### `tb_Administrador`
+
+Funcionários que analisam as solicitações.
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_CodFunc` | `INT` | PK, AUTO | Código do funcionário |
+| `Email` | `VARCHAR(150)` | NOT NULL, UNIQUE | E-mail de acesso |
+| `Senha` | `VARCHAR(255)` | NOT NULL | Senha |
+| `Genero` | `VARCHAR(30)` | – | Gênero (opcional) |
+| `Nome` | `VARCHAR(100)` | NOT NULL | Nome completo |
+
+### `tb_SolicitacaoConta`
+
+Pedido de aprovação de uma conta.
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDSolicitacaoConta` | `INT` | PK, AUTO | Identificador |
+| `idtb_Conta` | `INT` | FK, NOT NULL | Conta analisada (`tb_Conta`) |
+| `idtb_Administrador` | `INT` | FK | Administrador responsável (`tb_Administrador`); fica vazio até a análise |
+| `DataHora` | `DATETIME` | NOT NULL | Data e hora do pedido |
+| `StatusSolicitacao` | `TINYINT` | NOT NULL, padrão `0` | Situação do pedido |
+| `Justificativa` | `VARCHAR(255)` | – | Justificativa da decisão (opcional) |
+
+### `tb_SolicitacaoEvento`
+
+Pedido de criação de evento feito por um organizador.
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDSolicitacaoEvento` | `INT` | PK, AUTO | Identificador |
+| `idtb_Organizador` | `INT` | FK, NOT NULL | Organizador que pediu (`tb_Organizador`) |
+| `idtb_Administrador` | `INT` | FK | Administrador responsável (`tb_Administrador`); fica vazio até a análise |
+| `DataHora` | `DATETIME` | NOT NULL | Data e hora do pedido |
+| `Status` | `TINYINT` | NOT NULL, padrão `0` | Situação do pedido |
+
+### `tb_Evento`
+
+Evento criado a partir de uma solicitação (relação 1:1).
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDEvento` | `INT` | PK, AI | Identificador |
+| `idtb_SolicitacaoEvento` | `INT` | FK, NOT NULL, UNIQUE | Solicitação de origem (`tb_SolicitacaoEvento`) |
+| `Titulo` | `VARCHAR(150)` | NOT NULL | Título |
+| `Descricao` | `TEXT` | – | Descrição |
+| `Local` | `VARCHAR(200)` | NOT NULL | Local do evento |
+| `Capacidade` | `INT` | NOT NULL | Capacidade máxima |
+| `PublicoMinimo` | `INT` | – | Público mínimo |
+| `PublicoEsperado` | `INT` | – | Público esperado |
+| `Categoria` | `VARCHAR(100)` | – | Categoria |
+| `DataHora` | `DATETIME` | NOT NULL | Data e hora do evento |
+| `MargemLucro` | `DECIMAL(5,2)` | – | Margem de lucro |
+
+### `tb_ListaComponentes`
+
+Itens que o evento precisa para acontecer.
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDLista` | `INT` | PK, AI | Identificador |
+| `idtb_Evento` | `INT` | FK, NOT NULL | Evento (`tb_Evento`) |
+| `NomeItem` | `VARCHAR(100)` | NOT NULL | Nome do componente |
+| `Quantidade` | `INT` | NOT NULL | Quantidade necessária |
+| `ValorEstimado` | `DECIMAL(10,2)` | – | Valor estimado |
+| `idtb_ItemSelecionado` | `INT` | FK | Item escolhido (`tb_ListaItensFornecimentos`); fica vazio até a escolha |
+
+### `tb_SolicitacaoAtend_Fornecimento`
+
+Pedido de um fornecedor para atender um evento.
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDSolicitacaoAtend_Fornecedor` | `INT` | PK, AI | Identificador |
+| `idtb_Fornecedor` | `INT` | FK, NOT NULL | Fornecedor (`tb_Fornecedor`) |
+| `idtb_Evento` | `INT` | FK, NOT NULL | Evento atendido (`tb_Evento`) |
+| `DataHora` | `DATETIME` | NOT NULL | Data e hora do pedido |
+| `Status` | `TINYINT` | NOT NULL, padrão `0` | Situação do pedido |
+
+### `tb_ListaItensFornecimentos`
+
+Item oferecido por um fornecedor para um componente do evento.
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDItem` | `INT` | PK, AI | Identificador |
+| `idtb_SolicitacaoAtend_Fornecimento` | `INT` | FK, NOT NULL | Pedido de atendimento (`tb_SolicitacaoAtend_Fornecimento`) |
+| `idtb_Lista` | `INT` | FK, NOT NULL | Componente atendido (`tb_ListaComponentes`) |
+| `idtb_TipoFornecimento` | `INT` | FK | Categoria (`tb_TipoFornecimento`, opcional) |
+| `Valor` | `DECIMAL(10,2)` | NOT NULL | Valor oferecido |
+| `Quantidade` | `INT` | NOT NULL | Quantidade oferecida |
+| `Descricao` | `TEXT` | – | Descrição do item |
+
+### `tb_SolicitacaoCompraIngresso`
+
+Compra feita por um usuário. Pode ter vários ingressos.
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDCompraIngresso` | `INT` | PK, AI | Identificador |
+| `idtb_Usuario` | `INT` | FK, NOT NULL | Comprador (`tb_Usuario`) |
+| `DataHora` | `DATETIME` | NOT NULL | Data e hora da compra |
+| `ValorTotal` | `DECIMAL(10,2)` | NOT NULL | Valor total |
+
+### `tb_Ingresso`
+
+Ingresso de um evento, ligado a uma compra.
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDIngresso` | `INT` | PK, AI | Identificador |
+| `idtb_SolicitacaoCompraIngresso` | `INT` | FK, NOT NULL | Compra (`tb_SolicitacaoCompraIngresso`) |
+| `idtb_Evento` | `INT` | FK, NOT NULL | Evento (`tb_Evento`) |
+| `Status` | `TINYINT` | NOT NULL, padrão `0` | Situação do ingresso |
+| `ValorUnitario` | `DECIMAL(10,2)` | NOT NULL | Valor do ingresso |
+
+### `tb_Pagamento`
+
+Pagamento de uma compra.
+
+| Campo | Tipo | Restrições | Descrição |
+|---|---|---|---|
+| `PK_IDPagamento` | `INT` | PK, AI | Identificador |
+| `idtb_CompraIngresso` | `INT` | FK, NOT NULL | Compra paga (`tb_SolicitacaoCompraIngresso`) |
+| `idtb_FormaPagamento` | `INT` | FK, NOT NULL | Forma de pagamento (`tb_FormaPagamento`) |
+| `DataHora` | `DATETIME` | NOT NULL | Data e hora do pagamento |
+| `Valor` | `DECIMAL(10,2)` | NOT NULL | Valor pago |
+| `Status` | `TINYINT` | NOT NULL, padrão `0` | Situação do pagamento |
