@@ -1,6 +1,4 @@
-# Entregas do PI
-
-## 📋 Entregas
+# 📋 Entregas do PI
 
 ### 🠮 Entrega 1
 
