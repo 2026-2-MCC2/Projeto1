@@ -15,7 +15,7 @@
 | Máteria | Data Limite | Link |
 |---------|------|------|
 |Banco de Dados| 09/11/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Banco%20de%20Dados |
-|Cálculo II| 029/11/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Desenvolvimento%20Web%20FullStack |
+|Cálculo II| 09/11/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Desenvolvimento%20Web%20FullStack |
 |D. Web FullStack| 09/11/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Gestao%20Empresarial |
 |G. Empresarial| 09/11/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Gestao%20Empresarial |
 |Projeto Interdisciplinar| 09/11/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Projeto%20Interdisciplinar |
