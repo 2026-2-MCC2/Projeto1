@@ -1,0 +1,74 @@
+/* ============================================
+   FALECONOSCO
+   (usa tokens de tokens.css)
+   ============================================ */
+
+.global.contact-page {
+    padding: 72px 22px;
+    min-height: 70vh;
+}
+
+.titulo-secao {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form-faleconosco {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    margin: 28px auto 0;
+    gap: 6px;
+    text-align: left;
+}
+
+.label-faleconosco {
+    font-size: .9rem;
+    font-weight: 700;
+    text-align: left;
+    margin: 10px 0 2px;
+    color: var(--cor-texto);
+    display: block;
+}
+
+.input-faleconosco {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--page);
+    color: var(--cor-texto);
+    margin-bottom: 5px;
+}
+
+.textarea-faleconosco {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--page);
+    color: var(--cor-texto);
+    margin-bottom: 1rem;
+    resize: vertical;
+}
+
+.select-faleconosco {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--page);
+    color: var(--cor-texto);
+}
+
+.form-faleconosco .botao-principal {
+    margin-top: 10px;
+}

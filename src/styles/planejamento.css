@@ -1,0 +1,108 @@
+/* ============================================================
+   Módulos de planejamento: eventos, itens, propostas, ticket e aprovações.
+   Usa só os tokens de tokens.css / dashboard.css (funciona nos temas claro e escuro).
+   ============================================================ */
+
+.plan-bloco { margin-top: 20px; }
+.plan-vazio { text-align: left; }
+.plan-vazio p, .plan-vazio_texto { color: var(--muted); margin: 8px 0 0; }
+.plan-descricao { color: var(--muted); max-width: 70ch; }
+
+/* ---------- formulários ---------- */
+.plan-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px 16px; align-items: end; margin: 6px 0 16px; }
+.form-painel.plan-form--evento { max-width: 820px; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+.plan-campo { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.plan-campo label, .plan-rotulo { font-size: .82rem; font-weight: 600; color: var(--cor-texto); }
+.plan-campo small { color: var(--muted); font-size: .74rem; }
+.plan-campo--cheio, .plan-form .campo-erro { grid-column: 1 / -1; }
+.plan-campo input, .plan-campo select, .plan-campo textarea, .plan-input, .plan-filtros input, .plan-filtros select {
+  width: 100%; background: var(--page); color: var(--cor-texto); border: 1px solid var(--line); border-radius: 8px; padding: 10px; font: inherit;
+}
+.plan-campo textarea { resize: vertical; }
+.plan-campo input:focus-visible, .plan-campo select:focus-visible, .plan-campo textarea:focus-visible, .plan-input:focus-visible,
+.plan-filtros input:focus-visible, .plan-filtros select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.plan-form_acoes { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.plan-form--proposta { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 4px; }
+.plan-fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.plan-fieldset legend { font-size: .82rem; font-weight: 600; padding: 0 6px; }
+.plan-check { display: inline-flex; align-items: center; gap: 6px; font-size: .88rem; }
+.plan-input { margin-top: 6px; }
+
+/* ---------- etiquetas e avisos ---------- */
+.plan-tag { display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); margin-right: 6px; }
+.plan-tag--ok { background: var(--ok-bg); color: var(--ok-fg); margin: 0 0 0 8px; }
+.plan-tag--ruim { background: var(--bad-bg); color: var(--bad-fg); margin: 0 0 0 8px; }
+.plan-aviso { font-size: .8rem; color: var(--muted); }
+.plan-alerta { background: var(--pill-bg); color: var(--pill-fg); border-radius: 10px; padding: 12px 16px; font-size: .9rem; margin: 0 0 16px; }
+.plan-perigo { color: var(--danger); border-color: color-mix(in srgb, var(--danger) 45%, var(--line)); }
+.plan-destaque { color: var(--accent); }
+
+/* ---------- itens e propostas ---------- */
+.plan-itens { display: grid; gap: 16px; margin-top: 8px; }
+.plan-item { border: 1px solid var(--line); border-radius: 12px; padding: 16px; background: var(--page); min-width: 0; }
+.plan-item > header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+.plan-item h3 { margin: 6px 0 0; font-size: 1.02rem; }
+.plan-item h3 small { color: var(--muted); font-weight: 500; }
+.plan-item_lado { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; color: var(--muted); }
+.plan-tabela td, .plan-tabela th { white-space: normal; vertical-align: top; }
+.plan-tabela td strong { white-space: nowrap; }
+.plan-detalhes small { display: block; color: var(--muted); margin-top: 2px; }
+.plan-linha--ok td { background: color-mix(in srgb, var(--ok-bg) 55%, transparent); }
+.plan-mini { padding: 7px 12px; font-size: .8rem; }
+.plan-minha { border: 1px dashed var(--line); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; }
+.plan-minha p { margin: 6px 0 0; }
+
+/* ---------- orçamento e ticket ---------- */
+.plan-resumo { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 6px 0 18px; }
+.plan-resumo > div { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; background: var(--page); }
+.plan-resumo span { font-size: .78rem; color: var(--muted); }
+.plan-resumo strong { font-size: 1.15rem; }
+.plan-resumo--destaque { border-color: var(--accent) !important; }
+.plan-legenda { caption-side: top; text-align: left; padding: 0 0 8px; color: var(--muted); font-size: .85rem; }
+.plan-grafico { margin-top: 20px; }
+.plan-grafico h3 { margin: 0 0 8px; font-size: 1rem; }
+.plan-formula { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 12px; }
+.plan-formula summary { cursor: pointer; font-weight: 600; }
+.plan-formula summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.plan-formula p { margin: 8px 0 0; color: var(--muted); font-size: .9rem; }
+.plan-graficos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin: 16px 0; }
+
+/* ---------- topo do evento ---------- */
+.plan-topo-acoes { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+/* ---------- fornecedor: lista de eventos ---------- */
+.plan-filtros { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.plan-filtros input { flex: 1 1 240px; width: auto; }
+.plan-filtros select { flex: 0 0 auto; width: auto; min-width: 180px; }
+.plan-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.plan-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: var(--card-shadow); }
+.plan-card h2 { margin: 0; font-size: 1.15rem; }
+.plan-card_meta { margin: 0; color: var(--muted); font-size: .88rem; }
+.plan-card_tags { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; flex-wrap: wrap; }
+.plan-card .botao-principal { margin-top: auto; text-align: center; text-decoration: none; }
+
+/* ---------- admin ---------- */
+.plan-lista { margin: 6px 0 12px; padding-left: 18px; color: var(--muted); font-size: .9rem; }
+.plan-lista li { margin-bottom: 4px; }
+.plan-modal-titulo { margin: 14px 0 0; font-size: .95rem; }
+
+@media (max-width: 640px) {
+  .form-painel.plan-form--evento, .plan-form--proposta { grid-template-columns: 1fr; }
+  .plan-item { padding: 12px; }
+}
+
+/* ---------- celular: evita que o conteúdo estoure a largura da tela ---------- */
+.painel_conteudo, .painel_conteudo > * { min-width: 0; }
+.page-header > div { min-width: 0; max-width: 100%; }
+.painel_subtitulo { overflow-wrap: anywhere; }
+.plan-topo-acoes { max-width: 100%; }
+.cards-resumo { grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); }
+.plan-form { grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); }
+.bloco-tabela, .grafico-card, .painel-lateral, .coluna { min-width: 0; max-width: 100%; }
+.table-scroll { overflow-x: auto; max-width: 100%; }
+.filter-tools { display: flex; flex-wrap: wrap; gap: 8px; max-width: 100%; }
+.filter-tools input, .filter-tools select { min-width: 0; max-width: 100%; }
+@media (max-width: 760px) {
+  .layout-duas-colunas { grid-template-columns: minmax(0, 1fr); }
+  .page-header { align-items: flex-start; }
+}

@@ -1,0 +1,92 @@
+/* ============================================================
+   TEMA AZUL com degradês (último CSS carregado)
+   Claro: azul da logo (#1050A0) com variações mais escuras.
+   Escuro: azul mais claro, em degradê.
+   Para ajustar o visual do site, mexa só nos tokens --grad-* abaixo.
+   ============================================================ */
+
+:root {
+  --grad-accent:       linear-gradient(135deg, #a9d0ff 0%, #6ea0f2 52%, #4f86e0 100%);
+  --grad-accent-hover: linear-gradient(135deg, #c0dcff 0%, #82b1f7 52%, #639aea 100%);
+  --grad-texto:        linear-gradient(90deg, #b3d6ff 0%, #6ea0f2 55%, #4f86e0 100%);
+  --grad-hero:         radial-gradient(ellipse 70% 100% at 50% 0%, rgba(110, 160, 242, .20), transparent 72%);
+  --grad-chrome:       linear-gradient(180deg, #101e38 0%, #0a1220 100%);
+  --grad-ativo:        linear-gradient(90deg, rgba(110, 160, 242, .34), rgba(110, 160, 242, .06));
+  --grad-card:         linear-gradient(135deg, var(--surface) 0%, color-mix(in srgb, #6ea0f2 9%, var(--surface)) 100%);
+}
+[data-theme="light"] {
+  --grad-accent:       linear-gradient(135deg, #1b68cf 0%, #1050a0 50%, #0a2f66 100%);
+  --grad-accent-hover: linear-gradient(135deg, #2477e0 0%, #1560b8 50%, #0d3b7d 100%);
+  --grad-texto:        linear-gradient(90deg, #1b68cf 0%, #1050a0 50%, #0a2f66 100%);
+  --grad-hero:         radial-gradient(ellipse 70% 100% at 50% 0%, rgba(16, 80, 160, .16), transparent 72%);
+  --grad-chrome:       linear-gradient(180deg, #0f3266 0%, #08204a 100%);
+  --grad-ativo:        linear-gradient(90deg, rgba(110, 160, 242, .40), rgba(110, 160, 242, .08));
+  --grad-card:         linear-gradient(135deg, #ffffff 0%, #eef4fc 100%);
+}
+
+/* ---------- fundo das páginas ---------- */
+body { background: var(--grad-hero) top center / 100% 640px no-repeat, var(--page); }
+.painel { background: var(--grad-hero) top center / 100% 520px no-repeat, var(--page); }
+.pagina-auth { background: var(--grad-hero) top center / 100% 560px no-repeat, var(--page); }
+
+/* ---------- barra de navegação, menu lateral e rodapé ---------- */
+.cabecalho, .rodape { background: var(--grad-chrome); }
+.sidebar {
+  background: var(--grad-chrome);
+  /* o menu lateral é sempre escuro: usa as cores "chrome" mesmo no tema claro */
+  --muted: var(--chrome-fg-muted); --cor-texto: var(--chrome-fg); --line: var(--chrome-line);
+  --hover: rgba(255, 255, 255, .07); --active-fg: #ffffff;
+  --accent: var(--chrome-accent); --danger: #ff8a8a;
+}
+.sidebar_nav a.ativo, .sidebar_rodape a.ativo { background: var(--grad-ativo); box-shadow: inset 3px 0 0 var(--chrome-accent); }
+
+/* ---------- botões e destaques com degradê ---------- */
+.botao-principal, .acao-rapida--destaque, .cart-trigger > span, .carrossel_ponto.ativo,
+.category-filters button.selected, .carrossel_seta:hover, .organizer-calendar-day.is-selected,
+.switch input:checked + .switch_trilho {
+  background: var(--grad-accent); border-color: transparent; color: var(--on-accent);
+}
+.botao-principal:hover, .acao-rapida--destaque:hover { background: var(--grad-accent-hover); color: var(--on-accent); }
+.botao-principal:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* palavra em destaque no título (ex.: "grande evento.") */
+.accent {
+  color: var(--accent);
+  background: var(--grad-texto); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+@media (forced-colors: active) { .accent { background: none; -webkit-text-fill-color: currentColor; } }
+
+/* ---------- cartões ---------- */
+.card-resumo, .plan-resumo > div { background: var(--grad-card); }
+.card-resumo--rosa    { border-left-color: #30b0f8; }   /* azul-ciano da logo */
+.card-resumo--laranja { border-left-color: #5078d8; }   /* azul do ícone da logo */
+.card-resumo--azul    { border-left-color: #2a63c4; }
+.card-resumo--marinho { border-left-color: #1050a0; }
+.card-resumo--verde   { border-left-color: #4caf6d; }   /* verde só para "positivo/aprovado" */
+
+/* capas dos eventos: todas em azul */
+.evento-card_capa--vermelho { background: linear-gradient(160deg, #1b68cf, #0a2f66); }
+.evento-card_capa--amarelo  { background: linear-gradient(160deg, #30b0f8, #0b3b7a); }
+.evento-card_capa--marinho  { background: linear-gradient(160deg, #1050a0, #081c3d); }
+
+/* etiquetas e destaques do planejamento */
+.plan-tag { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); }
+.plan-resumo--destaque { border-color: transparent !important; background: linear-gradient(var(--surface), var(--surface)) padding-box, var(--grad-accent) border-box; border: 1.5px solid transparent; }
+
+.plan-item_lado, .plan-item_lado small { color: var(--muted); }
+
+/* Bolinha do carrinho: laranja da logo (#F87020), com texto escuro para manter o contraste */
+:root { --cor-laranja: #f87020; --cor-laranja-texto: #1b1b1b; }
+.cart-trigger > span {
+  background: var(--cor-laranja);
+  color: var(--cor-laranja-texto);
+  box-shadow: 0 0 0 2px var(--page);
+}
+
+/* Sombra dos cards do carrossel: sólida e com contraste (antes era azul a 50% de opacidade).
+   Escuro: azul bem claro. Claro: azul forte da logo. Daltonismo continua usando a cor da paleta escolhida. */
+:root { --sombra-card: #a9d0ff; }
+[data-theme="light"] { --sombra-card: #1050a0; }
+#root[data-daltonismo="protanopia"], #root[data-daltonismo="deuteranopia"], #root[data-daltonismo="tritanopia"] { --sombra-card: var(--sombra-retro); }
+.evento-card { box-shadow: 5px 6px 0 var(--sombra-card); }
+.evento-card:hover { box-shadow: 7px 9px 0 var(--sombra-card); }

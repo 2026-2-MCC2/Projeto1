@@ -1,154 +1,138 @@
-# FECAP - Fundação de Comércio Álvares Penteado
+# TrocaTicket
 
-<p align="center">
-<a href= "https://www.fecap.br/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhZPrRa89Kma0ZZogxm0pi-tCn_TLKeHGVxywp-LXAFGR3B1DPouAJYHgKZGV0XTEf4AE&usqp=CAU" alt="FECAP - Fundação de Comércio Álvares Penteado" border="0"></a>
-</p>
+Aplicação de página única em React, com Vite e React Router. A interface é renderizada por componentes React; `index.html` é o único arquivo HTML de entrada.
 
-# <img src="imagens/logo_navbar_web_full.png" width="250" height="250" alt="Logo da TrocaTicket">
+## Estrutura
 
-## 👥 Grupo: Build a dindin bomb
-
-## 👩‍💻 Integrantes:
-- [Lucas Pascali Janjiulio](https://www.linkedin.com/in/lucas-janjiulio-6152363b7/)
-- [Pietra Augusto Farias Ruiz](https://www.linkedin.com/in/pietra-ruiz-57b7643b3/)
-- [Maria Eduarda da Silva Souza](www.linkedin.com/in/mariaeduarda-silsouza)
-- [Lucas Elinou Feitosa](https://www.linkedin.com/in/lucas-elinou-feitosa-5568b1401/)
-
-## 🧑‍🏫 Professores Orientadores:
-- [David de Oliveira Lemes](https://www.linkedin.com/in/dolemes/)
-- [Francisco de Souza Escobar](https://www.linkedin.com/in/francisco-escobar/)
-- [Kátia Bossi](https://www.linkedin.com/in/katia-bossi/)
-- [Cristina Machado Corrêa Leite](https://www.linkedin.com/in/cristina-machado-corr%C3%AAa-leite-630309160/)
-- [Jésus Gomes](https://www.linkedin.com/in/j%C3%A9sus-gomes-83b769108/)
-
-## Descrição
-
-<p align="center">
-<img src="https://pix4free.org/assets/library/2021-01-20/originals/game.jpg" alt="NOME DO JOGO" border="0">
-  Game by <a href="http://www.nyphotographic.com/">Nick Youngson</a> <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href="http://pix4free.org/">Pix4free</a>
-</p>
-
-<br>
-
-<b> 🎟 Quem é a TrocaTicket</b>
-<br>
-<p align="justify">
-A TrocaTicket é uma plataforma web desenvolvida com o objetivo de facilitar a compra e a comercialização de ingressos para eventos, além de conectar organizadores e fornecedores em um único ambiente digital.<br>
-A proposta da plataforma é oferecer uma experiência prática e intuitiva para os usuários, permitindo que encontrem eventos, adquiram ingressos e acompanhem suas solicitações. Ao mesmo tempo, busca facilitar o gerenciamento de eventos pelos organizadores e a apresentação de propostas de fornecimento por empresas parceiras.
-</p>
-
-<b> 🎟 Sobre o projeto</b>
-<br>
-<p align="justify">
-A proposta dada pela empresa é a criação de módulos para os perfis de Administrador, Fornecedor, Organizador. Onde o sistema não deve realizar venda efetiva de ingressos nem processar pagamentos. O foco do MVP é o planejamento do evento, a obtenção e comparação de propostas, a consolidação dos custos e o cálculo do ticket médio estimado com base no público, nos custos e na margem de lucro definida.
-
-<br>
-
-## 🛠 Estrutura de pastas
+O código é organizado **por funcionalidade** (cada pasta em `features/` é um pedaço do negócio). Detalhes e regras em [`src/ARQUITETURA.md`](src/ARQUITETURA.md).
 
 ```
-├── Raiz
-│
-├── Documentos
-│   ├── Entrega 1
-│   │   ├── entrega x
-│   │   ├── entrega x
-│   │   ├── entrega x
-│   │   ├── entrega x
-│   │   └── entrega x
-│   └── Entrega 2
-│   |    ├── entrega x
-│   |    ├── entrega x
-│   |    ├── entrega x
-│   |    ├── entrega x
-│   |    └── entrega x
-|   ├── Banner 
-|   ├── Projeto de Extensão
-|   └── readme.md
-│
-|
-├── Src
-|   ├── Entrega 1
-│   └── Entrega 2
-|
-|  
-└── READ.md
-
+src/
+  main.jsx                    ponto de entrada (importa os estilos e monta o App)
+  app/                        "esqueleto" da aplicação
+    App.jsx                   rotas e layout geral
+    providers/                Theme, Accessibility e Store (estado global)
+    routes/                   paths, ProtectedRoute, navigation (menus por perfil), NavigationBridge
+  features/
+    auth/                     login, cadastro, cadastro de parceiro, authService
+    planejamento/             regras de negócio, store e componentes do ticket/propostas/orçamento
+    organizador/              painel do organizador (eventos, detalhe, calendário)
+    fornecedor/               painel do fornecedor (cotação e propostas)
+    admin/                    painel do administrador (aprovações, eventos, relatórios)
+    cliente/                  conta, pedidos e ingressos do cliente
+    publico/                  home, eventos, marketplace e contato
+    suporte/                  solicitações e suporte
+    painel/                   Análise e Configurações (comuns aos perfis)
+    acessibilidade/           painel de acessibilidade, filtros de cor e tutorial
+  shared/                     reaproveitado por várias features
+    dashboard/ layout/ ui/ hooks/
+  data/                       dados de demonstração (eventos.json, painelMock.js)
+  assets/images/              logos
+  styles/                     tokens.css (cores e temas), style.css, styles.css, dashboard.css, recursos.css, planejamento.css
 ```
 
-## 📋 Entregas
+## Rotas
 
-### 🠮 Entrega 1
+- Públicas: `/`, `/eventos`, `/marketplace`, `/contato`, `/login`, `/cadastro`
+- Cliente: `/ingressos`, `/pedidos`, `/minha-conta`
+- Admin: `/admin/dashboard`, `/solicitacoes`, `/analise`, `/suporte`, `/configuracoes`
+- Fornecedor: `/fornecedor/dashboard`, `/eventos`, `/solicitacoes`, `/analise`, `/suporte`, `/configuracoes`
+- Organizador: `/organizador/dashboard`, `/eventos`, `/eventos/novo`, `/solicitacoes`, `/analise`, `/suporte`, `/configuracoes`
 
-| Máteria | Data | Link |
-|---------|------|------|
-|Banco de Dados| 25/09/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%201/Banco%20de%20Dados |
-|Cálculo II| 25/09/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%201/Calculo%20II |
-|D. Web FullStack| 25/09/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%201/Desenvolvimento%20Web%20FullStack |
-|G. Empresarial| 25/09/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%201/Gestao%20Empresarial |
-|Projeto Interdisciplinar| 25/09/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%201/Projeto%20Interdisciplinar |
+Cada painel só abre para o perfil correspondente. No login de demonstração você escolhe o perfil.
 
-### 🠮 Entrega 2
+## Executar
 
-| Máteria | Data | Link |
-|---------|------|------|
-|Banco de Dados| 05/11/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Banco%20de%20Dados |
-|Cálculo II| 02/11/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Desenvolvimento%20Web%20FullStack |
-|D. Web FullStack| 06/11/2026 | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Gestao%20Empresarial |
-|G. Empresarial| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Gestao%20Empresarial |
-|Projeto Interdisciplinar| | https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Projeto%20Interdisciplinar |
-
-## 🛠 Instalação
-
-```sh
-Coloque código do prompt de comnando se for necessário
+```bash
+npm install
+npm run dev
 ```
 
-<b>Windows:</b>
+## Build de produção
 
-Não há instalação! Apenas executável!
-Encontre o JOGO.exe na pasta executáveis e execute-o como qualquer outro programa.
-
-```sh
-Coloque código do prompt de comnando se for necessário
+```bash
+npm run build
+npm run preview
 ```
 
-<b>HTML:</b>
+O build gera um único `index.html` e os arquivos em `dist/assets/`. O host de produção precisa encaminhar rotas desconhecidas para `index.html`; `public/_redirects` inclui essa regra para hosts compatíveis com o padrão Netlify.
 
-Não há instalação!
-Encontre o index.html na pasta executáveis e execute-o como uma página WEB (através de algum browser).
+## Limites do protótipo
 
-## 💻 Configuração para Desenvolvimento
+Cadastro, login, pedidos, mensagens, newsletter e carrinho usam `localStorage` deste navegador. Senhas não são salvas. Não há API, autenticação real, e-mail, processamento de pagamento ou sincronização entre dispositivos.
 
-Descreva como instalar todas as dependências para desenvolvimento e como rodar um test-suite automatizado de algum tipo. Se necessário, faça isso para múltiplas plataformas.
+## Login separado por público
 
-Para abrir este projeto você necessita das seguintes ferramentas:
+- `/login` e `/cadastro`: só clientes (o cadastro público sempre cria `cliente`).
+- `/painel/login`: administrador, fornecedor e organizador (sem link no site público).
+- Toda a autenticação está em `src/features/auth/services/authService.js`. Hoje usa contas de demonstração (`admin@`, `fornecedor@`, `organizador@trocaticket.dev`, qualquer senha); troque pelo back-end depois.
+- A segurança real (verificar senha e perfil) precisa acontecer no servidor.
 
+## Acessibilidade
 
-```sh
-make install
-npm test
-Coloque código do prompt de comnando se for necessário
-```
+`src/app/providers/AccessibilityContext.jsx` guarda as opções (fonte, daltonismo, voz narrada, Libras via VLibras, tutorial, links, espaçamento, animações). O mesmo conteúdo aparece no painel "+Acessibilidade" do site e em Configurações dos painéis.
 
-## 📋 Licença/License
-Utilize o link <https://chooser-beta.creativecommons.org/> para fazer uma licença CC BY 4.0.
+## Revisão visual e acessibilidade (01/11/2026)
+- A página Eventos agora utiliza a mesma família tipográfica da página inicial.
+- Os ícones de pesquisa, calendário, localização, menu, carrinho e conta usam Lucide.
+- Os filtros de categoria seguem o padrão de chips escuros do protótipo e mantêm estado selecionado perceptível por contorno.
+- As artes da página inicial usam versões claras e escuras enviadas pela equipe, mantendo dois quadros quadrados compactos próximos ao rodapé.
+- As opções de daltonismo aplicam paletas de interface com contornos reforçados, sem filtro global que distorça fotografias. São ajustes de interface, não correção clínica individual.
+- O calendário do organizador interpreta datas completas e períodos no formato `09–10 jan 2027` pela data inicial.
 
-## 🎓 Referências
+Para testar localmente: `npm install` e `npm run dev`.
 
-Aqui estão as referências usadas no projeto.
+---
 
-1. <https://github.com/iuricode/readme-template>
-2. <https://github.com/gabrieldejesus/readme-model>
-3. <https://chooser-beta.creativecommons.org/>
-4. <https://freesound.org/>
-5. <https://www.toptal.com/developers/gitignore>
-6. <https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras>
-7. <https://github.com/TCTK1/TrocaTicket-Assets>
+## Módulos de planejamento (fluxo do enunciado)
 
-### 🛠️ Tecnologias e Ferramentas
+Fluxo ponta a ponta: **autocadastro → aprovação → evento → itens de custo → propostas → seleção → cálculo do ticket → visão do administrador**.
 
-- [React](https://react.dev) - Biblioteca para construção de interfaces
-- [Lucide React](https://lucide.dev) - Biblioteca de componentes de ícones para React
-- [MySQL](https://www.mysql.com/) - Banco de Dados
-- [Node.js](https://nodejs.org/pt-br) - Para criação de servidores 
+| Perfil | Rotas | O que faz |
+|---|---|---|
+| Público | `/painel/cadastro` | Autocadastro de organizador/fornecedor (CNPJ validado). Nasce **Pendente**. |
+| Administrador | `/admin/cadastros` | Aprova/rejeita cadastros, com histórico de decisões. |
+| Administrador | `/admin/eventos`, `/admin/analise` | Eventos, custos, andamento das cotações e relatórios (exporta CSV). |
+| Organizador | `/organizador/eventos`, `/organizador/eventos/novo`, `/organizador/eventos/:id` | CRUD de eventos, itens de custo, custos fiscais/operacionais/variáveis, comparação e seleção de propostas, orçamento e ticket. |
+| Fornecedor | `/fornecedor/eventos`, `/fornecedor/eventos/:id`, `/fornecedor/propostas` | Vê eventos abertos, envia/edita/cancela propostas e acompanha o status. |
+
+### Cálculo do ticket (documentado)
+- **Ticket-alvo** = Custo total ÷ [Público × (1 − Margem)] (margem sobre a receita).
+- **Ticket de equilíbrio** = Custo total ÷ Público.
+- **Custo total** = propostas selecionadas + custos fixos + (custo variável por participante × Público).
+- **Arredondamento:** sempre para cima, ao centavo. **Validações:** público inteiro > 0, custo ≥ 0, margem entre 0% e 99,99%.
+- Cenários: público mínimo, esperado (opcional) e máximo. A tela mostra também a curva do ticket × público (útil para o estudo de máximos, mínimos e concavidade de Cálculo II).
+
+### Onde está o código
+- `src/features/planejamento/services/planejamentoApi.js`: todas as chamadas à API do planejamento (`leituras` e `acoes`).
+- `src/shared/api/http.js`: cliente HTTP único (URL configurável por `VITE_API_URL`, token JWT, mensagens de erro).
+- `src/shared/hooks/useApi.js`: carrega dados da API com estados de carregando, erro e "tentar de novo".
+- `src/features/planejamento/services/planejamento.js`: formatação e validações do formulário (o servidor valida de novo).
+- `src/features/planejamento/components/` e `src/features/{admin,organizador,fornecedor}/pages/`: telas.
+
+### Contas de demonstração
+Criadas por `npm run seed` (senha de todas: `Troca@123`): `admin@trocaticket.dev`, `organizador@trocaticket.dev`,
+`fornecedor@trocaticket.dev` e `cliente@trocaticket.dev`. O seed também cria eventos, propostas e cadastros pendentes de exemplo.
+
+## Como rodar (front-end + back-end)
+
+1. Entre na pasta do projeto (a que tem o `package.json`) e instale: `npm install`
+2. **Banco de dados:** rode no MySQL `BD/db_TrocaTicket.sql` e depois `BD/02_planejamento.sql` (detalhes e DER em [`BD/README.md`](BD/README.md)).
+3. **Back-end:** copie `backend/.env.example` para `backend/.env` e preencha a senha do MySQL e o `JWT_SECRET`
+   (o `.env` **não é versionado**). Rode `npm run seed` para criar contas e eventos de demonstração e `npm run server` (porta 3000).
+   Documentação das rotas em [`backend/README.md`](backend/README.md); collection do Postman em `docs/TrocaTicket.postman_collection.json`.
+4. **Front-end:** em outro terminal, `npm run dev` (porta 5173). A URL da API é configurável pelo `.env` da raiz
+   (modelo em `.env.example`): `VITE_API_URL=http://localhost:3000`.
+5. **Testes da API:** `npm run test:api` (não precisam de MySQL).
+
+**Contas da API** (depois do `npm run seed`, senha `Troca@123`): `admin@`, `organizador@`, `fornecedor@` e `cliente@trocaticket.dev`.
+
+**Situação atual:** o front-end inteiro (cliente, organizador, fornecedor e administrador) usa a API real e o MySQL.
+Nada do fluxo do planejamento fica mais no navegador. O login de todos os perfis é feito pela API (por isso é preciso rodar o `npm run seed`
+uma vez para ter contas de teste). Se o back-end estiver desligado, as telas mostram "Não foi possível conectar ao servidor" com um botão para tentar de novo.
+
+Roteiro de apresentação e de testes: [`docs/ROTEIRO_DE_TESTE.md`](docs/ROTEIRO_DE_TESTE.md).
+
+## Tema de cores
+O site usa o azul da logo. **Claro:** `#1050A0` com variações mais escuras. **Escuro:** azul mais claro em degradê.
+Os degradês ficam todos em `src/styles/tema-azul.css` (tokens `--grad-*`); as cores-base em `src/styles/tokens.css`.
