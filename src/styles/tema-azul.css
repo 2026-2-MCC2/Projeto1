@@ -90,3 +90,6 @@ body { background: var(--grad-hero) top center / 100% 640px no-repeat, var(--pag
 #root[data-daltonismo="protanopia"], #root[data-daltonismo="deuteranopia"], #root[data-daltonismo="tritanopia"] { --sombra-card: var(--sombra-retro); }
 .evento-card { box-shadow: 5px 6px 0 var(--sombra-card); }
 .evento-card:hover { box-shadow: 7px 9px 0 var(--sombra-card); }
+
+/* Fundo do cabeçalho e do rodapé: cinza bem escuro (os textos continuam como estavam) */
+.cabecalho, .rodape { background: #0b0c0e; }

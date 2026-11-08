@@ -348,7 +348,7 @@ html[data-theme="light"] .carrossel_seta {
   border-top: 1px dotted #9b8d7a;
   padding-top: 5px;
 }
-.polaroid-meta_preco dd { color: #1050a0; font-weight: 700; }
+.polaroid-meta_preco dd { color: #F87020; font-weight: 700; }
 
 /* Destaques inspirados no protótipo: composição compacta e visual. */
 .promo {
@@ -707,7 +707,7 @@ html[data-theme="light"] .carrossel_seta {
 .tt-polaroid-meta small { color: #766c62; font: 500 .53rem var(--font-mono); letter-spacing: .11em; }
 .tt-polaroid-meta > span { overflow: hidden; color: #342c27; font: 500 .68rem/1.3 var(--font-sans, Arial, sans-serif); text-overflow: ellipsis; white-space: nowrap; }
 .tt-polaroid-bottom { display: grid; gap: 4px; border-top: 1px dotted #aa9b86; padding-top: 8px; }
-.tt-polaroid-bottom strong { color: #1050a0; font: 700 .82rem var(--font-sans, Arial, sans-serif); }
+.tt-polaroid-bottom strong { color: #F87020; font: 700 .82rem var(--font-sans, Arial, sans-serif); }
 .tt-polaroid-bottom small { color: #61564d; font: 500 .58rem var(--font-mono); }
 .tt-polaroid-arrow { position: absolute; right: 8px; bottom: 7px; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 5px; background: #686868; color: #fff; font-size: 1.1rem; }
 .tt-polaroid-action { padding: 7px 5px 0; }
