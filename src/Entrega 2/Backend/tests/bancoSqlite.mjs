@@ -2,7 +2,7 @@
 import { DatabaseSync } from 'node:sqlite';
 import fs from 'node:fs';
 
-const BD = new URL('../../BD/', import.meta.url);
+const BD = new URL('../../../../BD/', import.meta.url);
 
 function comandos(arquivo) {
     const texto = fs.readFileSync(new URL(arquivo, BD), 'utf8').replace(/\r/g, '').split('\n').filter((l) => !l.trim().startsWith('--')).join('\n');
@@ -35,7 +35,7 @@ function executar(db, sql, params = []) {
 export function criarPoolSqlite() {
     const db = new DatabaseSync(':memory:');
     db.exec('PRAGMA foreign_keys = ON');
-    for (const arquivo of ['db_TrocaTicket.sql', '02_planejamento.sql']) for (const c of comandos(arquivo)) db.exec(c);
+    for (const c of comandos('db_TrocaTicket.sql')) db.exec(c);
     const q = async (sql, params) => executar(db, sql, params);
     return {
         db,

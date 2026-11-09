@@ -12,8 +12,7 @@ const { default: app } = await import('../src/app.js');
 const { garantirAdmin, semear } = await import('../scripts/semear.js');
 
 usarPool(criarPoolSqlite());
-const colecao = JSON.parse(fs.readFileSync(new URL('../../docs/TrocaTicket.postman_collection.json', import.meta.url), 'utf8'));
-
+const colecao = JSON.parse(fs.readFileSync(new URL('../../../../docs/TrocaTicket.postman_collection.json', import.meta.url), 'utf8'));
 test('collection do Postman executa de ponta a ponta', async () => {
     const servidor = app.listen(0);
     const base = `http://localhost:${servidor.address().port}`;
