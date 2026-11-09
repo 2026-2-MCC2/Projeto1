@@ -21,8 +21,3 @@ Este diretório reúne os materiais acadêmicos desenvolvidos ao longo das etapa
 | Desenvolvimento Web FullStack | 09/11/2026 | [Acessar materiais](./Entrega%202/Desenvolvimento%20Web%20FullStack/) |
 | Gestão Empresarial | 09/11/2026 | [Acessar materiais](./Entrega%202/Gestao%20Empresarial/) |
 | Projeto Interdisciplinar | 09/11/2026 | [Acessar materiais](./Entrega%202/Projeto%20Interdisciplinar/) |
-
-## Materiais gerais
-
-- [Documento do Projeto de Extensão — 2026.1](./Documento%20-%20Projeto%20de%20Extensão%20-%20COM%20Empresa%20-%202026_1.docx)
-- [Modelo de Banner FECAP — 2026.1](./MODELO_BANNER_FECAP_2026_1.pptx)
