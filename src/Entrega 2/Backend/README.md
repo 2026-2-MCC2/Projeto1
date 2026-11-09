@@ -1,79 +1,176 @@
-# API do TrocaTicket (Node.js + Express + MySQL)
+# Backend do TrocaTicket
 
-## Rodar
+O backend do TrocaTicket foi desenvolvido utilizando Node.js e Express, com integração ao banco de dados MySQL. Ele é responsável por processar as informações enviadas pelo frontend, realizar as operações no banco de dados e controlar as funcionalidades de cada tipo de usuário.
+
+## Como executar o projeto
+
+Os comandos abaixo devem ser executados no terminal, a partir da pasta principal do projeto.
+
+### 1. Configuração do ambiente
+
+O backend utiliza um arquivo `.env` para armazenar as configurações de conexão com o banco de dados e outras informações necessárias para o funcionamento da API.
+
+O arquivo de exemplo está localizado em:
+
+`src/Entrega 2/Backend/.env.example`
+
+Crie o arquivo `.env` na mesma pasta e preencha as informações de acordo com seu ambiente. Caso ele já exista, basta conferir as configurações, sem precisar substituí-lo.
+
+### 2. Banco de dados
+
+O banco de dados utilizado pelo projeto é o MySQL.
+
+Para criar as tabelas, execute o script:
+
+`BD/db_TrocaTicket.sql`
+
+Depois de configurar o banco e o arquivo `.env`, é possível executar o comando de seed para inserir os dados iniciais:
+
 ```bash
-cp backend/.env.example backend/.env   # preencha a senha do MySQL e o JWT_SECRET
-# crie o banco: veja BD/README.md (db_TrocaTicket.sql e 02_planejamento.sql)
-npm run seed     # contas e eventos de demonstração (senha: Troca@123)
-npm run server   # http://localhost:3000
-npm run test:api # testes automatizados (não precisam de MySQL)
+npm run seed
 ```
-Autenticação: `Authorization: Bearer <token>` (JWT de 2 horas). Erros sempre no formato `{ "mensagem": "..." }`.
-Collection do Postman: `docs/TrocaTicket.postman_collection.json` (46 requisições com testes; rode com o Collection Runner depois do `npm run seed`).
 
-## Códigos de status
-`200` ok · `201` criado · `400` dados inválidos · `401` sem login / senha errada · `403` perfil sem permissão ou cadastro não aprovado ·
-`404` não encontrado (inclui recursos de outro usuário) · `409` conflito de regra (ex.: transição de status inválida, proposta duplicada, orçamento fechado) · `500` erro interno
+### 3. Iniciar o servidor
 
-## Rotas
+Para iniciar o backend, utilize:
 
-### Autenticação — `/api/auth`
-| Método | Rota | Quem | O que faz |
-|---|---|---|---|
-| POST | `/cadastro` | público | Cadastro de cliente |
-| POST | `/login` | público | Login de cliente |
-| GET / PUT | `/perfil` | cliente | Consulta e atualiza o perfil |
-| POST | `/cadastro-parceiro` | público | Autocadastro de organizador/fornecedor (**fica pendente**) |
-| POST | `/login-equipe` | público | Login de admin, organizador ou fornecedor **aprovado** |
-
-### Administrador — `/api/admin`
-| Método | Rota | O que faz |
-|---|---|---|
-| GET | `/cadastros` | Lista organizadores e fornecedores com status |
-| PATCH | `/cadastros/:idConta` | Aprova ou rejeita: `{ "status": "Aprovado" \| "Rejeitado", "justificativa": "..." }` |
-| GET | `/auditoria` | Histórico das decisões |
-| GET | `/eventos` | Todos os eventos com resumo (itens fechados, custo, ticket-alvo) |
-| GET | `/resumo` | Totais para relatórios |
-
-### Organizador — `/api/eventos`
-| Método | Rota | O que faz |
-|---|---|---|
-| GET / POST | `/` | Lista meus eventos / cria evento (nasce como Rascunho) |
-| GET / PUT / DELETE | `/:id` | Detalhe (itens, custos, propostas, orçamento, cenários) / edita / exclui |
-| PATCH | `/:id/status` | `{ "status": "Aberto para cotação" }` (Rascunho → Aberto → Encerrada → Fechado) |
-| POST | `/:id/itens` | `{ categoria, descricao, quantidade }` |
-| DELETE | `/:id/itens/:itemId` | Remove item e suas propostas |
-| POST / DELETE | `/:id/custos` · `/:id/custos/:custoId` | `{ tipo, descricao, valor, cobranca: "total" \| "pessoa" }` |
-| POST | `/:id/propostas/:propostaId/selecionar` | Seleciona a proposta (uma por item) |
-| DELETE | `/:id/itens/:itemId/selecao` | Desfaz a seleção |
-| GET | `/:id/ticket` | Orçamento consolidado, cenários (mín/esperado/máx) e curva ticket × público |
-
-### Fornecedor — `/api/cotacoes` e `/api/propostas`
-O fornecedor **não vê** margem, custos nem propostas de concorrentes.
-| Método | Rota | O que faz |
-|---|---|---|
-| GET | `/api/cotacoes?categoria=&busca=` | Eventos abertos para cotação |
-| GET | `/api/cotacoes/:eventoId` | Itens do evento e minha proposta em cada um |
-| POST | `/api/cotacoes/:eventoId/itens/:itemId/propostas` | `{ valor, descricao, validade, observacoes }` |
-| GET | `/api/propostas/minhas` | Histórico e status das minhas propostas |
-| PUT | `/api/propostas/:id` | Edita (só "Enviada" e evento aberto) |
-| POST | `/api/propostas/:id/cancelar` | Cancela (só "Enviada") |
-
-## Fórmula do ticket
-`Ticket-alvo = Custo total ÷ [Público × (1 − Margem)]` e `Equilíbrio = Custo total ÷ Público`.
-`Custo total = propostas selecionadas + custos fixos + (custo por participante × Público)`. Arredondamento sempre **para cima**, ao centavo.
-
-## Organização
+```bash
+npm run server
 ```
-backend/
-  src/app.js, server.js      aplicação Express e inicialização
-  src/config/database.js     pool MySQL
-  routes/                    rotas por perfil
-  controllers/               regras de cada rota
-  middlewares/               autenticarToken (JWT) e exigirPerfil
-  services/regras.js         validações e cálculo do ticket (funções puras)
-  services/eventosRepo.js    leitura de eventos com itens, custos e propostas
-  utils/                     transação e respostas de erro
-  scripts/semear.js          dados de demonstração
-  tests/                     testes de ponta a ponta (SQLite em memória, mesmos scripts SQL)
+
+Por padrão, a API utiliza a porta configurada no arquivo `.env`.
+
+## Principais funcionalidades da API
+
+O backend possui rotas separadas de acordo com as funcionalidades do sistema.
+
+### Autenticação e contas
+
+As rotas de autenticação permitem cadastrar usuários, realizar login e consultar ou atualizar os dados da conta.
+
+- `POST /cadastro` — cadastro de cliente.
+- `POST /login` — login de cliente.
+- `GET /perfil` — consulta dos dados do perfil.
+- `PUT /perfil` — atualização do perfil.
+- `POST /cadastro-parceiro` — cadastro de parceiro.
+- `POST /login-equipe` — login dos integrantes da equipe.
+
+### Administração
+
+As rotas administrativas permitem acompanhar os cadastros, consultar eventos e visualizar informações do sistema.
+
+- `GET /cadastros` — consulta dos cadastros.
+- `PATCH /cadastros/:idConta` — atualização de um cadastro.
+- `GET /auditoria` — consulta dos registros de auditoria.
+- `GET /eventos` — consulta dos eventos.
+- `GET /resumo` — consulta do resumo administrativo.
+
+### Organizador
+
+O organizador pode criar e administrar eventos, cadastrar itens necessários, informar custos e acompanhar as propostas recebidas.
+
+As principais rotas estão organizadas em `/api/eventos`:
+
+- `GET /` — listar eventos.
+- `POST /` — criar evento.
+- `GET /:id` — consultar um evento.
+- `PUT /:id` — atualizar um evento.
+- `DELETE /:id` — excluir um evento.
+- `PATCH /:id/status` — atualizar o status do evento.
+- `POST /:id/itens` — adicionar itens ao evento.
+- `DELETE /:id/itens/:itemId` — remover itens.
+- `POST /:id/custos` — cadastrar custos.
+- `DELETE /:id/custos/:custoId` — remover custos.
+- `POST /:id/propostas/:propostaId/selecionar` — selecionar uma proposta.
+- `DELETE /:id/itens/:itemId/selecao` — remover a seleção de uma proposta.
+- `GET /:id/ticket` — consultar os cálculos relacionados ao ingresso.
+
+O fluxo de status dos eventos segue esta ordem:
+
+**Rascunho → Aberto para cotação → Encerrada → Fechado.**
+
+### Fornecedor
+
+O fornecedor pode consultar eventos que precisam de produtos ou serviços e enviar propostas para os organizadores.
+
+As principais rotas são:
+
+- `GET /api/cotacoes?categoria=&busca=` — consultar cotações.
+- `GET /api/cotacoes/:eventoId` — consultar os detalhes de uma cotação.
+- `POST /api/cotacoes/:eventoId/itens/:itemId/propostas` — enviar uma proposta.
+- `GET /api/propostas/minhas` — consultar as próprias propostas.
+- `PUT /api/propostas/:id` — atualizar uma proposta.
+- `POST /api/propostas/:id/cancelar` — cancelar uma proposta.
+
+As informações de custos internos, margens e propostas de outros fornecedores não são exibidas para o fornecedor.
+
+## Cálculo dos ingressos
+
+O sistema também possui cálculos para ajudar o organizador a definir o valor dos ingressos.
+
+As fórmulas utilizadas são:
+
+**Custo total:**
+
+`Propostas selecionadas + custos fixos + (custo por participante × público esperado)`
+
+**Ponto de equilíbrio:**
+
+`Custo total ÷ público esperado`
+
+**Valor de ingresso com margem:**
+
+`Custo total ÷ [público esperado × (1 − margem)]`
+
+Os valores são arredondados para duas casas decimais.
+
+## Testes da API
+
+O projeto possui testes automatizados para verificar o funcionamento das rotas e algumas regras do sistema.
+
+Para executar os testes:
+
+```bash
+npm run test:api
 ```
+
+Os testes utilizam um banco SQLite em memória, permitindo verificar as funcionalidades sem precisar conectar ao MySQL durante essa execução.
+
+Também existe uma coleção do Postman no projeto:
+
+`docs/TrocaTicket.postman_collection.json`
+
+Ela pode ser utilizada para testar as requisições da API.
+
+## Organização das pastas
+
+O backend está organizado da seguinte maneira:
+
+```text
+src/Entrega 2/Backend/
+├── controllers/
+├── middlewares/
+├── routes/
+├── scripts/
+├── services/
+├── src/
+├── tests/
+├── utils/
+├── .env
+├── .env.example
+└── README.md
+```
+
+Cada pasta possui uma responsabilidade dentro do backend:
+
+- `controllers`: recebem e processam as requisições.
+- `middlewares`: realizam verificações antes das rotas.
+- `routes`: organizam os caminhos da API.
+- `scripts`: possuem scripts auxiliares, como a inserção de dados iniciais.
+- `services`: concentram regras e operações utilizadas pelo sistema.
+- `tests`: armazenam os testes automatizados.
+- `utils`: guardam funções auxiliares.
+
+## Observações
+
+O backend está integrado ao frontend e ao banco de dados do TrocaTicket. Algumas funcionalidades ainda podem passar por ajustes durante o desenvolvimento do projeto, principalmente na integração e nos testes das operações.
