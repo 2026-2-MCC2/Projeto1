@@ -1,4 +1,4 @@
-# Backend do TrocaTicket
+# Backend - TrocaTicket
 
 O backend do TrocaTicket foi desenvolvido utilizando Node.js e Express, com integração ao banco de dados MySQL. Ele é responsável por processar as informações enviadas pelo frontend, realizar as operações no banco de dados e controlar as funcionalidades de cada tipo de usuário.
 
