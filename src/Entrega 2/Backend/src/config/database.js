@@ -1,23 +1,30 @@
-// Codigo para estabelecer a conexao do back com o banco
-
-// mysql - para acessar funcoes e colocar no banco
-// dotenv - carregar configuracoes de um arquivo .env
-
+// Conexão com o MySQL (pool). O pool só é criado no primeiro uso.
+// Os controllers importam "conexao" e usam query / execute / getConnection como antes.
 import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-//Config da conexao do banco
-
-const conexao = mysql.createPool({ //cria um conjunto de funcoes para a conexao com o banco
-    host: process.env.DB_HOST, //endereco do serv
-    user: process.env.DB_USER, //usuario do banco
-    password: process.env.DB_PASSWORD, //senha do banco
-    database: process.env.DB_NAME, //nome do banco
+let pool = null;
+const obterPool = () => (pool ??= mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     waitForConnections: true,
-    connectionLimit: 10, //limite de conexoes
-    queueLimit: 0 //sem fila de espera 
-});
+    connectionLimit: 10,
+    queueLimit: 0,
+    dateStrings: true,    // datas voltam como texto 'AAAA-MM-DD HH:MM:SS' (sem problema de fuso)
+    decimalNumbers: true  // DECIMAL volta como número
+}));
+
+// Permite trocar o pool nos testes automatizados (banco em memória, sem MySQL).
+export const usarPool = (novoPool) => { pool = novoPool; };
+
+const conexao = {
+    query: (...args) => obterPool().query(...args),
+    execute: (...args) => obterPool().execute(...args),
+    getConnection: () => obterPool().getConnection()
+};
 
 export default conexao;

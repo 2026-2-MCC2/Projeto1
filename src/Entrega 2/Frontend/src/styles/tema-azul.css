@@ -1,0 +1,41 @@
+
+.sidebar {
+  background: linear-gradient(180deg, #0f3266 0%, #08204a 100%);
+  --muted: #bdcce2;
+  --cor-texto: #ffffff;
+  --line: rgba(255, 255, 255, .14);
+  --hover: rgba(255, 255, 255, .08);
+  --active-bg: rgba(75, 145, 235, .22);
+  --active-fg: #ffffff;
+  --accent: #78b5ff;
+  --danger: #ff8a8a;
+}
+
+.sidebar .sidebar_nav a,
+.sidebar .sidebar_rodape a {
+  color: #eaf3ff !important;
+  opacity: 1;
+}
+
+.sidebar .sidebar_nav a:hover,
+.sidebar .sidebar_rodape a:hover {
+  background: rgba(120, 181, 255, .18);
+  color: #ffffff !important;
+}
+
+.sidebar .sidebar_nav a.ativo,
+.sidebar .sidebar_rodape a.ativo {
+  background: linear-gradient(90deg, #2875cb, #17477f);
+  color: #ffffff !important;
+  box-shadow: inset 4px 0 0 #8cc5ff;
+}
+
+.sidebar .sidebar_nav a svg,
+.sidebar .sidebar_rodape a svg {
+  color: #bbd8ff !important;
+}
+
+.sidebar .sidebar_nav a.ativo svg,
+.sidebar .sidebar_rodape a.ativo svg {
+  color: #ffffff !important;
+}

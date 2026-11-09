@@ -1,27 +1,19 @@
-/* ============================================================
-   TOKENS GLOBAIS — fonte única de verdade (claro/escuro)
-   Importar PRIMEIRO em main.jsx
-   ============================================================ */
 
 :root {
-  /* Tipografia */
   --font-sans: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
   --font-serif: "Fraunces Variable", Georgia, serif;
   --font-mono: "DM Mono", ui-monospace, monospace;
 
-  /* Espaçamento / raio */
   --raio: 12px;
   --espaco-1: 8px;
   --espaco-2: 16px;
   --espaco-3: 24px;
   --espaco-4: 40px;
 
-  /* Cores genéricas */
   --cor-branco: #fff;
   --cor-preto: #070707;
-  --cor-texto-roxo1: #8C6DA1;
+  --cor-texto-roxo1: #4b91eb;
 
-  /* ===== TEMA ESCURO (padrão) ===== */
   --cor-fundo: #070707;
   --cor-fundo-card: #161616;
   --cor-texto: #f0f0f0;
@@ -30,26 +22,24 @@
   --sombra: 0 2px 10px rgba(255, 255, 255, 0.15);
   --sombra-hover: 0 8px 20px rgba(255, 255, 255, 0.2);
 
-  --accent: #c5a2f3;
-  --accent-strong: #a97be8;
+  --accent: #4b91eb;
+  --accent-strong: #2875cb;
   --panel: #111;
   --line: #29272d;
   --muted: #a9a5ad;
   --surface: #151419;
   --page: #08080a;
 
-  /* Chrome: navbar + rodapé — escuro sempre, adapta levemente no claro */
   --chrome-bg: #0c0b0e;
   --chrome-bg-soft: #131116;
   --chrome-fg: #f0f0f0;
   --chrome-fg-muted: #a9a5ad;
   --chrome-line: #29272d;
-  --chrome-accent: #c5a2f3;
+  --chrome-accent: #4b91eb;
 
-  /* Retrô / polaroid */
   --paper: #f6edd9;
   --ink: #1c1815;
-  --sombra-retro: #c5a2f3;
+  --sombra-retro: #2875cb;
   --mostarda: #f2b134;
   --tomate: #d1441a;
 
@@ -65,8 +55,8 @@
   --sombra: 0 2px 10px rgba(38, 48, 44, 0.08);
   --sombra-hover: 0 8px 20px rgba(38, 48, 44, 0.14);
 
-  --accent: #7950ae;
-  --accent-strong: #633d96;
+  --accent: #2875cb;
+  --accent-strong: #17477f;
   --panel: #fff;
   --line: #e5e0e9;
   --muted: #67616d;
@@ -78,19 +68,25 @@
   --chrome-fg: #f3eee6;
   --chrome-fg-muted: #b6aec0;
   --chrome-line: #342f3d;
-  --chrome-accent: #c5a2f3;
+  --chrome-accent: #4b91eb;
 
   --paper: #fbf4e3;
   --ink: #1c1815;
-  --sombra-retro: #7950ae;
+  --sombra-retro: #2875cb;
   --mostarda: #d99a1f;
   --tomate: #b83612;
 
   color-scheme: light;
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);
@@ -99,7 +95,23 @@ body {
   line-height: 1.5;
   transition: background-color .3s ease, color .3s ease;
 }
-a { color: inherit; }
-img { max-width: 100%; display: block; }
-button, input, select, textarea { font: inherit; }
-button { cursor: pointer; }
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}

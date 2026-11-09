@@ -23,7 +23,7 @@ input, button {
 /*Header*/
 .cabecalho {
     background: var(--cor-preto) var(--cor-branco);
-    color: var(--cor-texto-roxo1);
+    color: var(--cor-destaque);
     padding: var(--espaco-2) var(--espaco-3);
     display: flex;
     align-items: center;
@@ -36,7 +36,7 @@ input, button {
     font-size: 1.4rem;
     font-weight: 700;
     text-decoration: none;
-    color: var(--cor-texto-roxo1);
+    color: var(--cor-destaque);
     display: flex;
     align-items: center;
     gap: var(--espaco-1);
@@ -69,7 +69,7 @@ input, button {
 
 .botao-icone {
     background: transparent;
-    border: 1px solid var(--cor-texto-roxo1);
+    border: 1px solid var(--cor-destaque);
     color: var(--cor-branco);
     border-radius: 50%;
     width: 38px;
@@ -152,8 +152,8 @@ input, button {
 }
 
 .carrossel_seta:hover:not(:disabled) {
-    border-color: var(--cor-texto-roxo1);
-    color: var(--cor-texto-roxo1);
+    border-color: var(--cor-destaque);
+    color: var(--cor-destaque);
 }
 
 .carrossel_seta:disabled {
@@ -162,7 +162,7 @@ input, button {
 }
 
 .carrossel:focus-visible {
-    outline: 2px solid var(--cor-texto-roxo1);
+    outline: 2px solid var(--cor-destaque);
     outline-offset: 6px;
     border-radius: var(--raio);
 }
@@ -221,7 +221,7 @@ input, button {
 }
 
 .evento-card:focus-visible {
-    outline: 2px solid var(--cor-texto-roxo1);
+    outline: 2px solid var(--cor-destaque);
     outline-offset: 3px;
 }
 
@@ -246,7 +246,7 @@ input, button {
 }
 
 .evento-card_capa--vermelho { background: linear-gradient(160deg, #b3272c, #3a0d0f); }
-.evento-card_capa--roxo { background: linear-gradient(160deg, var(--cor-texto-roxo1), #2c1f33); }
+.evento-card_capa--marinho { background: linear-gradient(160deg, var(--cor-destaque), #0a2a55); }
 .evento-card_capa--amarelo { background: linear-gradient(160deg, #c9a227, #3a2f0d); }
 
 .evento-card_badge {
@@ -283,7 +283,7 @@ input, button {
 
 .evento-card_preco {
     margin: 12px 0 0;
-    color: var(--cor-texto-roxo1);
+    color: var(--cor-destaque);
     font-size: 0.9rem;
     font-weight: 700;
 }
@@ -306,7 +306,7 @@ input, button {
 
 .carrossel_ponto.ativo {
     width: 22px;
-    background: var(--cor-texto-roxo1);
+    background: var(--cor-destaque);
 }
 
 .carrossel-esqueleto {
@@ -385,7 +385,7 @@ input, button {
 }
 
 .newsletter-form input[type="email"]:focus {
-    outline: 2px solid var(--cor-texto-roxo1);
+    outline: 2px solid var(--cor-destaque);
     outline-offset: 1px;
 }
 
@@ -434,7 +434,7 @@ input, button {
 }
 
 .promo_destaque {
-    color: var(--cor-texto-roxo1);
+    color: var(--cor-destaque);
 }
 
 .promo_legenda {
@@ -458,7 +458,7 @@ input, button {
     gap: var(--espaco-1);
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--cor-texto-roxo1);
+    color: var(--cor-destaque);
     margin-bottom: var(--espaco-3);
 }
 
@@ -591,7 +591,7 @@ input, button {
 
 .rodape_colunas h3 {
     font-size: 0.9rem;
-    color: var(--cor-texto-roxo1);
+    color: var(--cor-destaque);
     margin-bottom: var(--espaco-1);
 }
 
@@ -693,7 +693,7 @@ input, button {
 }
 
 .campo input:focus {
-    outline: 2px solid var(--cor-texto-roxo1);
+    outline: 2px solid var(--cor-destaque);
     outline-offset: 1px;
 }
 
@@ -725,7 +725,7 @@ input, button {
 }
 
 .auth-card_rodape a {
-    color: var(--cor-texto-roxo1);
+    color: var(--cor-destaque);
     text-decoration: none;
 }
 
@@ -759,7 +759,7 @@ input, button {
 
 .sidebar_papel {
     font-size: 0.75rem;
-    color: var(--cor-texto-roxo1);
+    color: var(--cor-destaque);
 }
 
 .sidebar_nav {
@@ -837,7 +837,7 @@ input, button {
 .card-resumo {
     background: var(--cor-fundo-card);
     border: 1px solid var(--cor-borda);
-    border-left: 4px solid var(--cor-texto-roxo1);
+    border-left: 4px solid var(--cor-destaque);
     border-radius: var(--raio);
     padding: var(--espaco-2);
 }
@@ -897,7 +897,7 @@ input, button {
 
 .grafico-barras span {
     flex: 1;
-    background: var(--cor-texto-roxo1);
+    background: var(--cor-destaque);
     border-radius: 4px 4px 0 0;
     opacity: 0.85;
 }

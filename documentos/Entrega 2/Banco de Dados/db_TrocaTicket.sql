@@ -216,3 +216,45 @@ INSERT INTO tb_FormaPagamento (Nome) VALUES
 ('PIX'),
 ('Cartao'),
 ('Boleto');
+
+-- (tb_Conta não tem nome)
+ALTER TABLE tb_Organizador ADD COLUMN Nome VARCHAR(150) NOT NULL DEFAULT '';
+ALTER TABLE tb_Fornecedor ADD COLUMN Nome VARCHAR(150) NOT NULL DEFAULT '';
+
+-- Rastreabilidade das decisões do administrador
+ALTER TABLE tb_SolicitacaoConta ADD COLUMN DataDecisao DATETIME NULL;
+
+ALTER TABLE tb_Evento ADD COLUMN DataFim DATETIME NULL;
+ALTER TABLE tb_Evento ADD COLUMN StatusEvento TINYINT NOT NULL DEFAULT 0;
+
+ALTER TABLE tb_ListaComponentes ADD COLUMN idtb_TipoFornecimento INT NULL;
+ALTER TABLE tb_ListaComponentes ADD CONSTRAINT fk_ListaComponentes_Tipo FOREIGN KEY (idtb_TipoFornecimento) REFERENCES tb_TipoFornecimento (PK_IDTipoFornecimento);
+
+ALTER TABLE tb_ListaItensFornecimentos ADD COLUMN Validade DATE NULL;
+ALTER TABLE tb_ListaItensFornecimentos ADD COLUMN Observacoes VARCHAR(255) NULL;
+ALTER TABLE tb_ListaItensFornecimentos ADD COLUMN DataEnvio DATETIME NULL;
+ALTER TABLE tb_ListaItensFornecimentos ADD COLUMN Cancelada TINYINT NOT NULL DEFAULT 0;
+
+CREATE TABLE tb_FornecedorTipo (
+    idtb_Fornecedor INT NOT NULL,
+    idtb_TipoFornecimento INT NOT NULL,
+    PRIMARY KEY (idtb_Fornecedor, idtb_TipoFornecimento),
+    FOREIGN KEY (idtb_Fornecedor) REFERENCES tb_Fornecedor (PK_IDFornecedor),
+    FOREIGN KEY (idtb_TipoFornecimento) REFERENCES tb_TipoFornecimento (PK_IDTipoFornecimento)
+);
+
+-- Custos fiscais, operacionais, variáveis e outros (não vêm de propostas)
+--   Cobranca: 'total' = valor fixo do evento | 'pessoa' = valor por participante
+CREATE TABLE tb_CustoEvento (
+    PK_IDCusto INT AUTO_INCREMENT PRIMARY KEY,
+    idtb_Evento INT NOT NULL,
+    Tipo VARCHAR(20) NOT NULL,
+    Descricao VARCHAR(150) NOT NULL,
+    Valor DECIMAL(10,2) NOT NULL,
+    Cobranca VARCHAR(10) NOT NULL DEFAULT 'total',
+    FOREIGN KEY (idtb_Evento) REFERENCES tb_Evento (PK_IDEvento)
+);
+
+-- Categorias de itens (as mesmas do front-end)
+INSERT INTO tb_TipoFornecimento (Nome) VALUES
+('Iluminação'), ('Som'), ('Alimentação'), ('Bebidas'), ('Segurança'), ('Estrutura'), ('Limpeza'), ('Outros');
