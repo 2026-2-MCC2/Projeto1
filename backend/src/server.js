@@ -1,20 +1,35 @@
-// Liga o servidor. A aplicação em si está em app.js
 import dotenv from 'dotenv';
-dotenv.config(); // carrega o .env ANTES de importar o resto
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const caminhoEnv = path.resolve(__dirname, '../.env');
+
+const resultadoEnv = dotenv.config({
+    path: caminhoEnv,
+});
+
+if (resultadoEnv.error) {
+    console.error('Erro ao localizar .env:', resultadoEnv.error);
+} else {
+    console.log('Arquivo .env carregado:', caminhoEnv);
+}
 
 const { default: app } = await import('./app.js');
 const { default: conexao } = await import('./config/database.js');
 
-// Teste rápido de conexão com o MySQL
-app.get('/testebanco', async (req, res) => {
-    try {
-        const [resultado] = await conexao.query('SELECT 1 AS conectado');
-        res.json({ mensagem: 'Conexão com o MySQL realizada', resultado });
-    } catch (erro) {
-        console.error('Erro ao conectar:', erro);
-        res.status(500).json({ mensagem: 'Erro ao conectar com o banco de dados.' });
-    }
+// Inicia o servidor
+const PORT = process.env.PORT || 3000;
+
+// Rota inexistente
+app.use((req, res) => {
+    res.status(404).json({
+        mensagem: 'Rota não encontrada.'
+    });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Servidor TrocaTicket rodando na porta ${PORT}`));
+app.listen(PORT, () => {
+    console.log(`Servidor TrocaTicket rodando na porta ${PORT}`);
+});

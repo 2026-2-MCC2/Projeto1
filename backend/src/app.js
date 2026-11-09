@@ -21,15 +21,33 @@ app.use('/api/propostas', propostaRouter);  // fornecedor
 app.use('/api/admin', adminRouter);         // administrador
 
 // Rota inexistente
-app.use((req, res) => res.status(404).json({ mensagem: 'Rota não encontrada.' }));
+app.use((req, res) => {
+    return res.status(404).json({
+        mensagem: 'Rota não encontrada.'
+    });
+});
 
-// Erros não tratados: JSON inválido -> 400; duplicidade -> 409; o resto -> 500 (sem vazar detalhes)
+// Tratamento global de erros
 app.use((err, req, res, next) => {
     if (res.headersSent) return next(err);
-    if (err.type === 'entity.parse.failed') return res.status(400).json({ mensagem: 'JSON inválido no corpo da requisição.' });
-    if (err.code === 'ER_DUP_ENTRY') return res.status(409).json({ mensagem: 'Registro duplicado.' });
+
+    if (err.type === 'entity.parse.failed') {
+        return res.status(400).json({
+            mensagem: 'JSON inválido no corpo da requisição.'
+        });
+    }
+
+    if (err.code === 'ER_DUP_ENTRY') {
+        return res.status(409).json({
+            mensagem: 'Registro duplicado.'
+        });
+    }
+
     console.error('Erro não tratado:', err);
-    res.status(500).json({ mensagem: 'Erro interno do servidor.' });
+
+    return res.status(500).json({
+        mensagem: 'Erro interno do servidor.'
+    });
 });
 
 export default app;

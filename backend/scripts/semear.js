@@ -84,7 +84,14 @@ export async function semear(base, log = () => {}) {
 // Execução direta: npm run seed
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const { default: dotenv } = await import('dotenv');
-    dotenv.config();
+    const { default: path } = await import('node:path');
+
+    const caminhoEnv = path.resolve(
+        fileURLToPath(import.meta.url),
+        '../../.env'
+    );
+
+    dotenv.config({ path: caminhoEnv });
     const { default: bcrypt } = await import('bcrypt');
     const { default: conexao } = await import('../src/config/database.js');
     const { default: app } = await import('../src/app.js');
