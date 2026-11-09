@@ -1,0 +1,224 @@
+
+:root {
+  --grad-accent: linear-gradient(135deg, #a9d0ff 0%, #6ea0f2 52%, #4f86e0 100%);
+  --grad-accent-hover: linear-gradient(135deg, #c0dcff 0%, #82b1f7 52%, #639aea 100%);
+  --grad-texto: linear-gradient(90deg, #b3d6ff 0%, #6ea0f2 55%, #4f86e0 100%);
+  --grad-hero: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(110, 160, 242, .20), transparent 72%);
+  --grad-chrome: linear-gradient(180deg, #101e38 0%, #0a1220 100%);
+  --grad-ativo: linear-gradient(90deg, rgba(110, 160, 242, .34), rgba(110, 160, 242, .06));
+  --grad-card: linear-gradient(135deg, var(--surface) 0%, color-mix(in srgb, #6ea0f2 9%, var(--surface)) 100%);
+
+  --cor-laranja: #F87020;
+  --cor-laranja-texto: #1B1B1B;
+  --sombra-card: #A9D0FF;
+}
+
+[data-theme="light"] {
+  --grad-accent: linear-gradient(135deg, #1b68cf 0%, #1050a0 50%, #0a2f66 100%);
+  --grad-accent-hover: linear-gradient(135deg, #2477e0 0%, #1560b8 50%, #0d3b7d 100%);
+  --grad-texto: linear-gradient(90deg, #1b68cf 0%, #1050a0 50%, #0a2f66 100%);
+  --grad-hero: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(16, 80, 160, .16), transparent 72%);
+  --grad-chrome: linear-gradient(180deg, #0f3266 0%, #08204a 100%);
+  --grad-ativo: linear-gradient(90deg, rgba(16, 80, 160, .40), rgba(16, 80, 160, .08));
+  --grad-card: linear-gradient(135deg, #ffffff 0%, #eef4fc 100%);
+
+  --sombra-card: #1050A0;
+}
+
+body {
+  background: var(--grad-hero) top center / 100% 640px no-repeat, var(--page);
+}
+
+.painel {
+  background: var(--grad-hero) top center / 100% 520px no-repeat, var(--page);
+}
+
+.pagina-auth {
+  background: var(--grad-hero) top center / 100% 560px no-repeat, var(--page);
+}
+
+.cabecalho,
+.rodape {
+  background: var(--grad-chrome);
+}
+
+.sidebar {
+  background: linear-gradient(180deg, #0f3266 0%, #08204a 100%);
+  --muted: #bdcce2;
+  --cor-texto: #ffffff;
+  --line: rgba(255, 255, 255, .14);
+  --hover: rgba(255, 255, 255, .08);
+  --active-bg: rgba(75, 145, 235, .22);
+  --active-fg: #ffffff;
+  --accent: #78b5ff;
+  --danger: #ff8a8a;
+}
+
+.sidebar_nav a,
+.sidebar_rodape a {
+  color: #dce9fa;
+}
+
+.sidebar_nav a:hover,
+.sidebar_rodape a:hover {
+  background: rgba(255, 255, 255, .10);
+  color: #ffffff;
+}
+
+.sidebar_nav a.ativo,
+.sidebar_rodape a.ativo {
+  background: linear-gradient(
+    90deg,
+    rgba(88, 157, 245, .35),
+    rgba(88, 157, 245, .08)
+  );
+  color: #ffffff;
+  box-shadow: inset 3px 0 0 #78b5ff;
+}
+
+.botao-principal,
+.acao-rapida--destaque,
+.carrossel_ponto.ativo,
+.category-filters button.selected,
+.carrossel_seta:hover,
+.organizer-calendar-day.is-selected,
+.switch input:checked + .switch_trilho {
+  background: var(--grad-accent);
+  border-color: transparent;
+  color: var(--on-accent);
+}
+
+.botao-principal:hover,
+.acao-rapida--destaque:hover {
+  background: var(--grad-accent-hover);
+  color: var(--on-accent);
+}
+
+.botao-principal:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.cart-trigger > span {
+  background: var(--cor-laranja);
+  color: var(--cor-laranja-texto);
+  box-shadow: 0 0 0 2px var(--page);
+}
+
+.accent {
+  color: var(--accent);
+  background: var(--grad-texto);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (forced-colors: active) {
+  .accent {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
+}
+
+.card-resumo,
+.plan-resumo > div {
+  background: var(--grad-card);
+}
+
+.card-resumo--rosa {
+  border-left-color: #30B0F8;
+}
+
+.card-resumo--laranja {
+  border-left-color: #5078D8;
+}
+
+.card-resumo--azul {
+  border-left-color: #2A63C4;
+}
+
+.card-resumo--marinho {
+  border-left-color: #1050A0;
+}
+
+.card-resumo--verde {
+  border-left-color: #4CAF6D;
+}
+
+.evento-card_capa--vermelho {
+  background: linear-gradient(160deg, #1b68cf, #0a2f66);
+}
+
+.evento-card_capa--amarelo {
+  background: linear-gradient(160deg, #30b0f8, #0b3b7a);
+}
+
+.evento-card_capa--marinho {
+  background: linear-gradient(160deg, #1050a0, #081c3d);
+}
+
+.plan-tag {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent);
+}
+
+.plan-resumo--destaque {
+  border: 1.5px solid transparent !important;
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    var(--grad-accent) border-box;
+}
+
+.plan-item_lado,
+.plan-item_lado small {
+  color: var(--muted);
+}
+
+.evento-card {
+  box-shadow: 5px 6px 0 var(--sombra-card);
+}
+
+.evento-card:hover {
+  box-shadow: 7px 9px 0 var(--sombra-card);
+}
+
+#root[data-daltonismo="protanopia"],
+#root[data-daltonismo="deuteranopia"],
+#root[data-daltonismo="tritanopia"] {
+  --sombra-card: var(--sombra-retro);
+}
+
+.sidebar .sidebar_nav a,
+.sidebar .sidebar_rodape a {
+  color: #EAF3FF !important;
+  opacity: 1;
+}
+
+.sidebar .sidebar_nav a span,
+.sidebar .sidebar_rodape a span {
+  color: inherit !important;
+}
+
+.sidebar .sidebar_nav a svg,
+.sidebar .sidebar_rodape a svg {
+  color: #BBD8FF !important;
+  opacity: 1;
+}
+
+.sidebar .sidebar_nav a:hover,
+.sidebar .sidebar_rodape a:hover {
+  background: rgba(120, 181, 255, .18);
+  color: #FFFFFF !important;
+}
+
+.sidebar .sidebar_nav a.ativo,
+.sidebar .sidebar_rodape a.ativo {
+  background: linear-gradient(90deg, #2875CB, #17477F);
+  color: #FFFFFF !important;
+  box-shadow: inset 4px 0 0 #8CC5FF;
+}
+
+.sidebar .sidebar_nav a.ativo svg,
+.sidebar .sidebar_rodape a.ativo svg {
+  color: #FFFFFF !important;
+}

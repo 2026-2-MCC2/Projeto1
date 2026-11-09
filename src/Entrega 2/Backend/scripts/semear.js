@@ -101,6 +101,9 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
         await garantirAdmin(conexao, bcrypt);
         await semear(`http://localhost:${servidor.address().port}`, console.log);
         console.log(`\nPronto! Todas as contas usam a senha: ${SENHA_DEMO}\n  admin@trocaticket.dev | organizador@trocaticket.dev | fornecedor@trocaticket.dev | cliente@trocaticket.dev`);
-    } catch (e) { console.error('Falha ao popular:', e.message); process.exitCode = 1; }
+    } catch (e) {
+        console.error('Falha ao popular:', e);
+        process.exitCode = 1;
+    }
     finally { servidor.close(); process.exit(); }
 }

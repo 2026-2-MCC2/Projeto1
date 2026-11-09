@@ -8,6 +8,7 @@ import './styles/tokens.css';
 import './styles/styles.css';
 import './styles/dashboard.css';
 import './styles/recursos.css';
+import './styles/tema-azul.css';
 import { ThemeProvider } from './context/ThemeContext.jsx';
 import { AccessibilityProvider } from './context/AccessibilityContext.jsx';
 import { StoreProvider } from './context/StoreContext.jsx';

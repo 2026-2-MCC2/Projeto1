@@ -1,105 +1,164 @@
-/* ============================================================
-   TOKENS GLOBAIS — fonte única de verdade (claro/escuro)
-   Importar PRIMEIRO em main.jsx
-   ============================================================ */
-
 :root {
   /* Tipografia */
   --font-sans: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
   --font-serif: "Fraunces Variable", Georgia, serif;
   --font-mono: "DM Mono", ui-monospace, monospace;
 
-  /* Espaçamento / raio */
+  /* Espaçamento */
   --raio: 12px;
   --espaco-1: 8px;
   --espaco-2: 16px;
   --espaco-3: 24px;
   --espaco-4: 40px;
 
-  /* Cores genéricas */
-  --cor-branco: #fff;
+  /* Cores básicas */
+  --cor-branco: #ffffff;
   --cor-preto: #070707;
-  --cor-texto-roxo1: #8C6DA1;
 
-  /* ===== TEMA ESCURO (padrão) ===== */
+  /* Identidade visual TrocaTicket */
+  --cor-destaque: #6EA0F2;
+  --on-accent: #07101F;
+  --cor-laranja: #F87020;
+  --cor-laranja-texto: #1B1B1B;
+
+
+  /* TEMA ESCURO — PADRAO */
+
+  /* Fundos */
   --cor-fundo: #070707;
   --cor-fundo-card: #161616;
-  --cor-texto: #f0f0f0;
-  --cor-texto-suave: #c0c0c0;
-  --cor-borda: #2a2a2a;
+  --page: #08080A;
+  --panel: #111111;
+  --surface: #141619;
+
+  /* Textos */
+  --cor-texto: #F0F0F0;
+  --cor-texto-suave: #C0C0C0;
+  --muted: #9FA4AD;
+
+  /* Bordas */
+  --cor-borda: #2A2A2A;
+  --line: #27292D;
+
+  /* Destaques */
+  --accent: #6EA0F2;
+  --accent-strong: #4F86E0;
+
+  /* Sombras */
   --sombra: 0 2px 10px rgba(255, 255, 255, 0.15);
-  --sombra-hover: 0 8px 20px rgba(255, 255, 255, 0.2);
+  --sombra-hover: 0 8px 20px rgba(255, 255, 255, 0.20);
 
-  --accent: #c5a2f3;
-  --accent-strong: #a97be8;
-  --panel: #111;
-  --line: #29272d;
-  --muted: #a9a5ad;
-  --surface: #151419;
-  --page: #08080a;
+  /* Barra de navegacao e rodape */
+  --chrome-bg: #0B1322;
+  --chrome-bg-soft: #111C32;
+  --chrome-fg: #F0F0F0;
+  --chrome-fg-muted: #9FA4AD;
+  --chrome-line: #1F2F4D;
+  --chrome-accent: #6EA0F2;
 
-  /* Chrome: navbar + rodapé — escuro sempre, adapta levemente no claro */
-  --chrome-bg: #0c0b0e;
-  --chrome-bg-soft: #131116;
-  --chrome-fg: #f0f0f0;
-  --chrome-fg-muted: #a9a5ad;
-  --chrome-line: #29272d;
-  --chrome-accent: #c5a2f3;
-
-  /* Retrô / polaroid */
-  --paper: #f6edd9;
-  --ink: #1c1815;
-  --sombra-retro: #c5a2f3;
-  --mostarda: #f2b134;
-  --tomate: #d1441a;
+  /* Elementos retro e cards */
+  --paper: #F6EDD9;
+  --ink: #1C1815;
+  --sombra-retro: #6EA0F2;
+  --sombra-card: #A9D0FF;
+  --mostarda: #5AA9F0;
+  --tomate: #1050A0;
 
   color-scheme: dark;
 }
 
+
+/* TEMA CLARO  */
+
 [data-theme="light"] {
-  --cor-fundo: #f0f0f0;
-  --cor-fundo-card: #ffffff;
+
+  /* Fundos */
+  --cor-fundo: #F5F7FC;
+  --cor-fundo-card: #FFFFFF;
+  --page: #F5F7FC;
+  --panel: #FFFFFF;
+  --surface: #FFFFFF;
+
+  /* Textos */
   --cor-texto: #181818;
-  --cor-texto-suave: #2b2b2b;
-  --cor-borda: #dcdcdc;
+  --cor-texto-suave: #414B5A;
+  --muted: #61666D;
+
+  /* Bordas */
+  --cor-borda: #D6DEE9;
+  --line: #D6DEE9;
+
+  /* Destaques */
+  --cor-destaque: #1050A0;
+  --on-accent: #FFFFFF;
+  --accent: #1050A0;
+  --accent-strong: #0B3B7A;
+
+  /* Sombras */
   --sombra: 0 2px 10px rgba(38, 48, 44, 0.08);
   --sombra-hover: 0 8px 20px rgba(38, 48, 44, 0.14);
 
-  --accent: #7950ae;
-  --accent-strong: #633d96;
-  --panel: #fff;
-  --line: #e5e0e9;
-  --muted: #67616d;
-  --surface: #ffffff;
-  --page: #f7f5f9;
+  /* Barra de navegacao e rodape */
+  --chrome-bg: #0C2850;
+  --chrome-bg-soft: #123564;
+  --chrome-fg: #F3EEE6;
+  --chrome-fg-muted: #AEB5C0;
+  --chrome-line: #24467A;
+  --chrome-accent: #6EA0F2;
 
-  --chrome-bg: #1a1720;
-  --chrome-bg-soft: #221e2a;
-  --chrome-fg: #f3eee6;
-  --chrome-fg-muted: #b6aec0;
-  --chrome-line: #342f3d;
-  --chrome-accent: #c5a2f3;
-
-  --paper: #fbf4e3;
-  --ink: #1c1815;
-  --sombra-retro: #7950ae;
-  --mostarda: #d99a1f;
-  --tomate: #b83612;
+  /* Elementos retro e cards */
+  --paper: #FBF4E3;
+  --ink: #1C1815;
+  --sombra-retro: #1050A0;
+  --sombra-card: #1050A0;
+  --mostarda: #2F7FD6;
+  --tomate: #1050A0;
 
   color-scheme: light;
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+/* REGRAS GLOBAIS  */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);
   background: var(--page);
   color: var(--cor-texto);
   line-height: 1.5;
-  transition: background-color .3s ease, color .3s ease;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
-a { color: inherit; }
-img { max-width: 100%; display: block; }
-button, input, select, textarea { font: inherit; }
-button { cursor: pointer; }
+
+
+/* ELEMENTOS BASICOS */
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
