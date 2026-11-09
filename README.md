@@ -495,4 +495,4 @@ O MVP tem como objetivo apoiar o planejamento e a organização de eventos. Não
 
 ## 📄 Licença
 
-A definição da licença do projeto deve ser consultada e formalizada pela equipe. Para escolher uma licença Creative Commons, pode ser utilizado o [Creative Commons License Chooser](https://chooser-beta.creativecommons.org/).
+Não há definição da licença do projeto, o projeto foi desenvolvido para fins acadêmicos no curso de Ciência da Computação, 2 semestre.
