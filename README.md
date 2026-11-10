@@ -151,11 +151,11 @@ O backend é responsável pelo processamento das requisições, comunicação co
 
 | Matéria | Data | Link |
 |---|---|---|
-| Banco de Dados | 05/11/2026 | [Acessar entrega](https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Banco%20de%20Dados) |
+| Banco de Dados | 09/11/2026 | [Acessar entrega](https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Banco%20de%20Dados) |
 | Cálculo II | 02/11/2026 | [Acessar entrega](https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Desenvolvimento%20Web%20FullStack) |
-| D. Web FullStack | 06/11/2026 | [Acessar entrega](https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Gestao%20Empresarial) |
-| G. Empresarial | — | [Acessar entrega](https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Gestao%20Empresarial) |
-| Projeto Interdisciplinar | — | [Acessar entrega](https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Projeto%20Interdisciplinar) |
+| D. Web FullStack | 07/11/2026 | [Acessar entrega](https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Gestao%20Empresarial) |
+| G. Empresarial | 06/11/2026 | [Acessar entrega](https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Gestao%20Empresarial) |
+| Projeto Interdisciplinar | 07/11/2026 | [Acessar entrega](https://github.com/2026-2-MCC2/Projeto1/tree/main/documentos/Entrega%202/Projeto%20Interdisciplinar) |
 
 ---
 
